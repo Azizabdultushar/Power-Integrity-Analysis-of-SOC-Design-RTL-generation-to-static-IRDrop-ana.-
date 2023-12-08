@@ -555,7 +555,7 @@ topRoutingLayer      vCells               viaRuleGenerates
 #+END_VERSE
 
 
-#+BEGIN_SRC
+#+BEGIN_SRC elisp :results none
 Primary Lab Data Directory Structure
 +--voltus_labs
 +-- design
