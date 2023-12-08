@@ -1,0 +1,43 @@
+Primary Lab Data Directory Structure
++--voltus_labs
++-- design
+| +-- super_filter.cpf
+| +-- super_filter.def.gz
+| +-- postRouteOpt_RC_wc_0.spef.gz
+| +-- postRouteOpt_RC_wc_125.spef.gz
+| +-- postRouteOpt_RC_bc_0.spef.gz
+| +-- postRouteOpt_RC_bc_125.spef.gz
+| +-- super_filter_VDD_AO.pp
+| +-- super_filter_VDD_external.pp
+| +-- super_filter_VSS.pp
+| +-- base.sdc
+| +-- postRouteOpt.design
+| +-- postRouteOpt.design.dat/
+| | +-- viewDefinition.tcl
+| | +-- super_filter.v.gz
+| | +-- super_filter.fp.gz
++-- data
+| +-- gds
+| | +-- pll.gds
+| +-- lef
+| | +-- <manyLefs>.lef
+| +-- libs
+| | +-- <manyLibs>.lib
+| +-- netlists
+| | +-- pso_ring.spi
+| | +-- pso_header.spi
+| | +-- pll.sp
+| | +-- gsclib090.sp
+| +-- qrc
+| | +-- tech file
+| | +-- CapTbl
+| +-- models
+| | +--spectre
+| +-- pgv_dir
+| | +-- power grid view libraries
+| +-- voltus
+| | +-- layermap files
++-- tcl
+| +-- Tcl commands
++-- lab
++-- era
