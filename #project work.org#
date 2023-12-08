@@ -155,14 +155,14 @@ Repeated dynamic IR drop simulations.
 
 #+CAPTION: Model training(left) and prediction flow
 #+NAME:   fig:SED-HR4049
-[[./img/p4.jpg]]
+[[./img/p4.JPG]]
 
 
 #+BEGIN_COMMENT
 
 #+CAPTION: Features extraction
 #+NAME:   fig:SED-HR4049
-[[./img/p3.jpg]]
+[[./img/p3.JPG]]
 #+END_COMMENT
 
 
