@@ -145,7 +145,7 @@ Repeated dynamic IR drop simulations.
 
 #+CAPTION: Traditional IR Drop signoff flow
 #+NAME:   fig:SED-HR4049
-[[./p0.jpg]]
+[[./img/p0.jpg]]
 
 #+CAPTION: Model training(left) and prediction flow
 #+NAME:   fig:SED-HR4049
@@ -155,14 +155,14 @@ Repeated dynamic IR drop simulations.
 
 #+CAPTION: Model training(left) and prediction flow
 #+NAME:   fig:SED-HR4049
-[[./p4.jpg]]
+[[./img/p4.jpg]]
 
 
 #+BEGIN_COMMENT
 
 #+CAPTION: Features extraction
 #+NAME:   fig:SED-HR4049
-[[./p3.jpg]]
+[[./img/p3.jpg]]
 #+END_COMMENT
 
 
@@ -174,7 +174,7 @@ Repeated dynamic IR drop simulations.
 #+BEGIN_COMMENT
 #+CAPTION: This is the caption for the next figure link (or table)
 #+NAME:   fig:SED-HR4049
-[[./p1.jpg]]
+[[./img/p1.jpg]]
 #+END_COMMENT
 
 ** paper 3: Vector-based Dynamic IR-drop prediction Using ML
@@ -307,10 +307,6 @@ $help read_lib    #seeking help about read_lib command
 $help   
 
 
-
-
-
-
 ** Module 3_1 Design Data importing and sanity checks
 + To ensure the design is clean before running power and rail analysis.
 + Different methods to importing data.
@@ -339,11 +335,11 @@ $help
 
 #+CAPTION:500mA on M5: Cell instances versus current consumption plot ( Resistor current)
 #+NAME:   fig:SED-HR4049
-[[./era4.jpg]]
+[[./img/era4.jpg]]
 
 #+CAPTION:500mA on M5: Cell instances versus current consumption plot ( Resistor current)
 #+NAME:   fig:SED-HR4049
-[[./era5.jpg]]
+[[./img/era5.jpg]]
 
 
 #+BEGIN_VERSE
@@ -374,7 +370,7 @@ analyze_rail \
 ** method
 #+CAPTION: This is the caption for the next figure link (or table)
 #+NAME:   fig:SED-HR4049
-[[./era1.jpg]]
+[[./img/era1.jpg]]
 
 
 
@@ -491,14 +487,6 @@ library(pso_ring_wc) {
 
 
 
-
-
-
-
-
-
-
-
 ** Some important Command
 #+BEGIN_VERSE
 
@@ -567,9 +555,7 @@ topRoutingLayer      vCells               viaRuleGenerates
 #+END_VERSE
 
 
-
 #+BEGIN_VERSE
-
 Primary Lab Data Directory Structure
 +--voltus_labs
 +-- design
