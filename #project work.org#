@@ -555,7 +555,7 @@ topRoutingLayer      vCells               viaRuleGenerates
 #+END_VERSE
 
 
-#+BEGIN_VERSE
+#+BEGIN_SRC
 Primary Lab Data Directory Structure
 +--voltus_labs
 +-- design
@@ -600,7 +600,7 @@ Primary Lab Data Directory Structure
 +-- lab
 +-- era
 
-#+END_VERSE
+#+END_SRC
 
 
 
