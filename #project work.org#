@@ -197,7 +197,7 @@ Repeated dynamic IR drop simulations.
 
 + MIMO Chart
 
-+--------------------+   +---------------------------------+
+
 | Input              |   | + output                        |
 | GDSII              |   | + vectorprofile.rpt             |
 | tech lib .cl       |   | + toggle of ip                  |
@@ -208,11 +208,11 @@ Repeated dynamic IR drop simulations.
 | def file   .def    |   |                                 |
 | power format .cpf  |   |                                 |
 | spef  file .spef   |   |                                 |
-|                    |   |                                 |
-+--------------------+   +---------------------------------+
 
 
-------------------------------------------------------------------
+
+
+----------------------------------------------------
 *  IR drop analysis using EDA tools || ; Practical
 
 Voltus IC power integrity solution tool: it perform gate level power grid analysis
@@ -233,7 +233,8 @@ Understanding License:
 + rail analysis flows
 
 ** Data requirements for Power and IRDrop Analysis in VOLTUS
-+----------------------------------------+
+
+
 | + library ('_') timing library         |
 | Common Timing Libraries*:              | 
 | worst timing libraries*:               |
@@ -241,20 +242,19 @@ Understanding License:
 | worst noise libraries:                 |                          
 | best noise libraries:                  |                          
 | noise libraries:                       |                          
-+----------------------------------------+                          
+                        
                                                       
-+-------------------------------------+               
+            
 | + Design ('_')                      |               
 | verilog netlist*:                   |
 | top level netlist*:Could be anyname |               
 | timing constraint*:   .sdc file     |               
 | spef*:                              |
 | sdf delay:                          | 
-+-------------------------------------+               
+           
                                                       
-+---------------------------------+                         
-|                                 |                   
-|                                 |
+                      
+
 | + Physical ('_')                |                                           
 |                                 |
 | lef*:                           |                   
@@ -263,24 +263,20 @@ Understanding License:
 | component def and so on.        |
 | floorplan file:                 |                   
 | placement file:                 |                   
-| routing file:                   |                   
-+---------------------------------+                   
+| routing file:                   |                                 
 
-+-------------------------------------------------------+
+
 | Low power:                                            |
 | soce msmv file:                                       |
 | power net/s: its just name of power e.g VDD or AVDD   |
 | voltage/s: 0.9V or 1.8V                               |
 | Ground net/s: its just namae of ground e.g VSS or     |
 | era_vss                                               |
-|                                                       |
-+-------------------------------------------------------+
-
 
 
 |+ MMMC                  |
 | view definition file:  |
-+------------------------+
+
 
 
 A file system that organizes data and program files in a top-to-bottom structure.
