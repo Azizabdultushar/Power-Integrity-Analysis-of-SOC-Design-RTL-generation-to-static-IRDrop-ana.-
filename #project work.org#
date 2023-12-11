@@ -211,7 +211,18 @@ Repeated dynamic IR drop simulations.
 | def file   .def    |   |                                 |
 | power format .cpf  |   |                                 |
 | spef  file .spef   |   |                                 |
+-----------------------------------------------------
+* Innovus PnR flow
 
+Gate level netlist
+.v or .vhd
+
+Floorplanning
+I/O contraint file, Aspect ratio, I/O to core clearence,
+Flip, Abut,Double Back.
+
+Partitioning 
+Logical Groups, Clock Groups
 
 
 
