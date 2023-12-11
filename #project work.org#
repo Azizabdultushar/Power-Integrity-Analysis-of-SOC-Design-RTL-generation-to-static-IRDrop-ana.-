@@ -417,6 +417,9 @@ https://www.cerc.utexas.edu/itc99-benchmarks/polibench.pdf
 + Path delay
 + It is refer to the time, it takes for a signal to travel from one point to another point (destination).
 
++ Mapping
+The goal of mapping is to transform a technology-independent description of a logic circuit into a technology specific reprentation
+
 
 ** .lib file structure
 
