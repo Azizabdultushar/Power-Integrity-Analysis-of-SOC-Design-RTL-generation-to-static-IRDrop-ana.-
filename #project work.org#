@@ -23,8 +23,8 @@
 #+LATEX_CLASS_OPTIONS: [a4paper]
 
 
-* Prepare the org-file                                             :noexport:
-
+# * Prepare the org-file                                             :noexport:
+#+BEGIN_COMMENT
 Select the languages that we are going to use here.
 #+BEGIN_SRC elisp :results none
 (org-babel-do-load-languages
@@ -36,7 +36,7 @@ Select the languages that we are going to use here.
 
   (require 'org-attach-screenshot)
 #+END_SRC
-
+#+END_COMMENT
 ------------------------------------------------------------
 * Goal 
 This document contains information on power planning and IR drop analysis. Specifically, it cointains:
