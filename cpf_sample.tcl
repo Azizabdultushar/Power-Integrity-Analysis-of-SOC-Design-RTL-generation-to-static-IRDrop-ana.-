@@ -1,4 +1,3 @@
-#+BEGIN_SRC elisp :results none
 
 Primary Lab Data Directory Structure
 +--voltus_labs
@@ -44,4 +43,3 @@ Primary Lab Data Directory Structure
 +-- lab
 +-- era
 
-#+END_SRC
