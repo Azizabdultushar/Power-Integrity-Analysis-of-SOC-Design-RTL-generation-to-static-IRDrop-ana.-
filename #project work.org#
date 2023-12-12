@@ -838,7 +838,10 @@ end_design
 + Which pdk I should use in b19?
 + not finding GPDK file TSMC 40nm and 65nm
 + need synthesis tool , design vision
-+ Could you share me the lab file.
++ Could you share me the lab file
++ UPF file is same as CPF file? both of the files are providing power details of chip.
++ definition.tcl or definition.view both are can be use as mmmc_file for view analysis
++ Why we need to set init_gnd and init_pwr VDD and init_gnd VSS in the time of design importing since we will provide cpf file link in
 
 
 
