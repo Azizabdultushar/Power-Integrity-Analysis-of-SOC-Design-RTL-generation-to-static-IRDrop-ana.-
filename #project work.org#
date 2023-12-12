@@ -846,7 +846,7 @@ cpf: It is an optional file for importing power domain configuration; Define dif
 and different rule, differnt power mode, always on cell, power clocking gate and so on.
 and init power and gnd in the time of importing design is necessary this is how we initiate create power ring and stripes.
 
-*** TODO [#5] Genus synthesis -> .v and .sdc file is ready [DONE]
+*** TODO [#5] [DONE] Genus synthesis -> .v and .sdc file is ready
 *** TODO [#7] Get for importing design
 *** TODO [#10] Write floorplan script  in .tcl
 *** TODO [#20] Write placement script in -tcl
