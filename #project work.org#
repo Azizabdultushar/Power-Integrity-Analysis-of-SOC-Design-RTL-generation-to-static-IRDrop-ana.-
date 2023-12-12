@@ -841,7 +841,22 @@ end_design
 + Could you share me the lab file
 + UPF file is same as CPF file? both of the files are providing power details of chip.
 + definition.tcl or definition.view both are can be use as mmmc_file for view analysis
-+ Why we need to set init_gnd and init_pwr VDD and init_gnd VSS in the time of design importing since we will provide cpf file link in
++ Why we need to set init_gnd and init_pwr VDD and init_gnd VSS in the time of design importing since we will provide cpf file (UPF file format can also be converted into cpf file, so chill both are kind of same) during imporing design.
+cpf: It is an optional file for importing power domain configuration; Define different kind of power cell as like isolation cell and level shifter cell
+and different rule, differnt power mode, always on cell, power clocking gate and so on.
+and init power and gnd in the time of importing design is necessary this is how we initiate create power ring and stripes.
+
+*** TODO [#5] Genus synthesis -> .v and .sdc file is ready
+*** TODO [#7] Get for importing design
+*** TODO [#10] Write floorplan script  in .tcl
+*** TODO [#20] Write placement script in -tcl
+*** TODO [#30] Get ready for CTS script
+*** TODO [#40] script for Routing
+*** TODO [#55] script for Optimization
+*** TODO [#65] Def exporting script
+*** TODO [#80] save design in .enc format
+
+
 
 
 
