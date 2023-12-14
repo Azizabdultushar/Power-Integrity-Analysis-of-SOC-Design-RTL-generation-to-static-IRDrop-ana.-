@@ -1,0 +1,48 @@
+# -*- mode: org; -*-
+# -*- org-export-babel-evaluate: nil -*-
+
+#+TITLE: Power Planning and IR Drop Analysis
+#+AUTHOR: Dr.-Ing. Amir Najafi, Abdul Aziz
+#+EMAIL: amir.najafi@uni-bremen.de, azizab@uni-bremen.de
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:nil arch:headline
+#+OPTIONS: author:t c:nil creator:comment d:(not "LOGBOOK") date:t
+#+OPTIONS: e:t email:nil f:t inline:t num:t p:nil pri:nil stat:t
+#+OPTIONS: tags:t tasks:t tex:t timestamp:t toc:t todo:t |:t
+#+PROPERTY: header-args :eval never-export
+#+CREATOR: ITEM.IDS
+#+EXCLUDE_TAGS: noexport
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/readtheorg/css/htmlize.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/readtheorg/css/readtheorg.css"/>
+#+HTML_HEAD: <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+#+HTML_HEAD: <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="http://www.pirilampo.org/styles/readtheorg/js/readtheorg.js"></script>
+
+
+* Prepare the org-file                                             :noexport:
+
+Select the languages that we are going to use here.
+#+BEGIN_SRC elisp :results none
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((sh . t)
+   (ditaa . t)
+   (python . t)
+   (emacs-lisp . t)))
+
+  (require 'org-attach-screenshot)
+#+END_SRC
+* Goal 
+This document contains information on power planning and IR drop analysis. Specifically, it cointains:
++ Theory and math related to power and rail analysis.
++ Practical know-how on doing rail and power analysis using EDA tools.
++ New technologies for IR drop reduction.
++ State of the art approaches for IR drop estimation using AI.
+
+* Theory 
+
+* Practical IR drop analysis using EDA tools
+
+* Literature Review: A summary of books, papers, or online articles 
