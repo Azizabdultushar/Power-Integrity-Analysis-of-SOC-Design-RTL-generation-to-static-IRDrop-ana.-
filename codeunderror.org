@@ -1,7 +1,7 @@
 # -*- mode: org; -*-
 # -*- org-export-babel-evaluate: nil -*-
 
-#+TITLE: Code || Error || U+26A0
+#+TITLE: Code || Error || ⚠
 #+AUTHOR: Dr.-Ing. Amir Najafi, Abdul Aziz
 #+EMAIL: amir.najafi@uni-bremen.de, azizab@uni-bremen.de
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:nil arch:headline
