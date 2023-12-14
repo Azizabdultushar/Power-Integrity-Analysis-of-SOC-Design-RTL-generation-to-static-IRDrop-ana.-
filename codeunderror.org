@@ -1,7 +1,7 @@
 # -*- mode: org; -*-
 # -*- org-export-babel-evaluate: nil -*-
 
-#+TITLE: Power Planning and IR Drop Analysis
+#+TITLE: Code || Error || U+26A0
 #+AUTHOR: Dr.-Ing. Amir Najafi, Abdul Aziz
 #+EMAIL: amir.najafi@uni-bremen.de, azizab@uni-bremen.de
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:nil arch:headline
@@ -21,28 +21,3 @@
 #+HTML_HEAD: <script type="text/javascript" src="http://www.pirilampo.org/styles/readtheorg/js/readtheorg.js"></script>
 
 
-* Prepare the org-file                                             :noexport:
-
-Select the languages that we are going to use here.
-#+BEGIN_SRC elisp :results none
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((sh . t)
-   (ditaa . t)
-   (python . t)
-   (emacs-lisp . t)))
-
-  (require 'org-attach-screenshot)
-#+END_SRC
-* Goal 
-This document contains information on power planning and IR drop analysis. Specifically, it cointains:
-+ Theory and math related to power and rail analysis.
-+ Practical know-how on doing rail and power analysis using EDA tools.
-+ New technologies for IR drop reduction.
-+ State of the art approaches for IR drop estimation using AI.
-
-* Theory 
-
-* Practical IR drop analysis using EDA tools
-
-* Literature Review: A summary of books, papers, or online articles 
