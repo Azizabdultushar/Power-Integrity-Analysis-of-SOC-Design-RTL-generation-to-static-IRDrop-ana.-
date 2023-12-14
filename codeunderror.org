@@ -293,5 +293,32 @@ verify_drc
 #Design saving
 saveDesign results/$step.enc
 
+
+example 02
+
+set step "floorplan"
+set rpt_dir "./reports/$step"
+
+setPinConstraint -side {top bottom} -layer {M2}
+setPinConstraint -side {right left} -layer {M3}
+floorPlan -r 1 0.7 30 30 30 30
+addRing -nets {VDD VSS} -type core_rings -follow core -layer {top metal5 bottom metal5 left metal6 right metal6} -width 12.6 -spacing 2.0 -offset 1.0
+addStripe -set_to_set_distance 10 -spacing 10 -xleft_offset 0.7 -direction vertical -layer metal6 -width 0.7 -nets VSS
+addStripe -set_to_set_distance 10 -spacing 10 -xleft_offset 5.7 -direction vertical -layer metal6 -width 0.7 -nets VDD
+addStripe -set_to_set_distance 10 -spacing 10 -ybottom_offset 0.7 -direction horizontal -layer metal5 -width 0.7 -nets VSS
+addStripe -set_to_set_distance 10 -spacing 10 -ybottom_offset 5.7 -direction horizontal -layer metal5 -width 0.7 -nets VDD
+sroute
+timeDesign -prePlace -outDir $rpt_dir -prefix $step
+report_timing -format {instance pin cell net load slew delay arrival}
+
+timeDesign -prePlace -expandedViews -numPaths 10 -outDir $rpt_dir -prefix $step
+timeDesign -prePlace -hold -expandedViews -numPaths 10 -outDir $rpt_dir -prefix $step
+
+timeDesign -prePlace -expandedViews -numPaths 10 -outDir $rpt_dir -prefix $step
+reportGateCount -stdCellOnly -outfile $rpt_dir/stdGateCount.rpt
+analyzeFloorplan -outfile $rpt_dir/analyzeFloorplan.rpt
+verifyGeometry
+saveDesign ./dataOut/designs/$step.enc
+
 #+END_SRC
 
