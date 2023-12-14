@@ -260,3 +260,38 @@ saveDesign ../approx/design/trunck_k6/floorplanCpf.enc
 
 #+END_SRC
 
++ Floorplan
+#+BEGIN_SRC
+
+set step "floorplan"
+
+floorplan -d 300 275 5 5 5 5
+
+setPinConstraint -cell Gemmini -side {top bottom} -layer {metal2}
+setPinConstraint -cell Gemmini -side {right left} -layer {metal3}
+
+globalNetConnect VDD -type pgpin -pin VDD -all
+globalNetConnect VSS -type pgpin -pin VSS -all
+globalNetConnect VDD -type tiehi
+globalNetConnect VSS -type tielo
+
+addRing -nets {VDD VSS} -follow core -layer {bottom metal5 top metal5 right metal6 left metal6} -width 1 -spacing 1 -offset 1
+addStripe -nets {VDD VSS} -layer metal5 -width 4 -spacing 2 -set_to_set_distance 30 -xleft_offset 20 -xright_offset 20
+addStripe -nets {VDD VSS} -direction {horizontal} -layer metal6 -width 4 -spacing 2 -set_to_set_distance 30 -ytop_offset 20 -ybottom_offset 20
+
+sroute -allowLayerChange true
+
+set rpt_dir "./reports/$step"
+timeDesign -prePlace -outDir $rpt_dir -prefix $step
+report_timing -format {instance pin cell net load slew delay arrival}
+timeDesign -prePlace -hold -expandedViews -numPaths 10 -outDir $rpt_dir -prefix $step
+reportGateCount -stdCellOnly -outfile $rpt_dir/stdGateCount.rpt
+
+#Drc checking
+verify_drc
+
+#Design saving
+saveDesign results/$step.enc
+
+#+END_SRC
+
