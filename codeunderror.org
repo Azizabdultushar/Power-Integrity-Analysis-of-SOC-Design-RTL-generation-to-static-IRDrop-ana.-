@@ -51,4 +51,212 @@ init_remove_assigns               init_top_cell
 init_verilog                      init_verilog_tolerate_port_mismatch
 #+END_SRC
 
+* script
++ floorplanwithcpf
+
+#+BEGIN_SRC
+##############################################
+## Design Mode ##
+##############################################
+
+setDesignMode -process 40 
+
+################################################
+## Setup physical libraries and input netlist ##
+################################################
+set defHierChar /
+set init_cpf_file ../inData/cpf/fft16.cpf
+set init_lef_file {  /usrf01/prog/freepdk/fpdk45_v20/NANGATE/NangateOpenCellLibrary_PDKv1_3_v2010_12/Low_Power/Back_End/lef/LowPowerOpenCellLibrary.lef \
+ /usrf01/prog/freepdk/fpdk45_v20/NANGATE/NangateOpenCellLibrary_PDKv1_3_v2010_12/Low_Power/Back_End/lef/LowPowerOpenCellLibrary.macro.lef \
+ /usrf01/prog/freepdk/fpdk45_v20/NANGATE/NangateOpenCellLibrary_PDKv1_3_v2010_12/Low_Power/Back_End/lef/LowPowerOpenCellLibrary.tech.lef \
+ /usrf01/prog/freepdk/fpdk45_v20/NANGATE/NangateOpenCellLibrary_PDKv1_3_v2010_12/Back_End/lef/NangateOpenCellLibrary.lef \
+ /usrf01/prog/freepdk/fpdk45_v20/NANGATE/NangateOpenCellLibrary_PDKv1_3_v2010_12/Low_Power/Back_End/lef/AON_BUF_X1.lef \
+ /usrf01/prog/freepdk/fpdk45_v20/NANGATE/NangateOpenCellLibrary_PDKv1_3_v2010_12/Low_Power/Back_End/lef/AON_BUF_X2.lef \
+ /usrf01/prog/freepdk/fpdk45_v20/NANGATE/NangateOpenCellLibrary_PDKv1_3_v2010_12/Low_Power/Back_End/lef/AON_BUF_X4.lef \
+ /usrf01/prog/freepdk/fpdk45_v20/NANGATE/NangateOpenCellLibrary_PDKv1_3_v2010_12/Low_Power/Back_End/lef/AON_INV_X1.lef \
+ /usrf01/prog/freepdk/fpdk45_v20/NANGATE/NangateOpenCellLibrary_PDKv1_3_v2010_12/Low_Power/Back_End/lef/AON_INV_X2.lef \
+ /usrf01/prog/freepdk/fpdk45_v20/NANGATE/NangateOpenCellLibrary_PDKv1_3_v2010_12/Low_Power/Back_End/lef/AON_INV_X4.lef \
+ /usrf01/prog/freepdk/fpdk45_v20/NANGATE/NangateOpenCellLibrary_PDKv1_3_v2010_12/Low_Power/Back_End/lef/LS_HL_X1.lef \
+ /usrf01/prog/freepdk/fpdk45_v20/NANGATE/NangateOpenCellLibrary_PDKv1_3_v2010_12/Low_Power/Back_End/lef/LS_LH_X1.lef}
+
+
+
+set init_pwr_net {VDD VDD1}
+set init_gnd_net {VSS}
+set init_top_cell fft16
+#set init_verilog ../experiment/fft16_cpfsyn.v
+
+set init_verilog ../approx/netlist/trunck_k6.v
+
+
+#################
+## Read Design ##
+#################
+init_design
+#source ./script/innoGlobal.tcl
+
+
+################################
+## Select Active Timing Views ##
+################################
+set_analysis_view -setup {AV_normal_mode_wc_rc125_setup} -hold {AV_low_mode_bc_rc0_hold}
+
+
+###########################
+## Read Power Intent CPF ##
+###########################
+read_power_intent -cpf ../inData/cpf/fft16.cpf
+
+#########################
+## Commit Power Intent ##
+#########################
+commit_power_intent
+
+
+##########################
+#Floorplan Initialization#
+##########################
+setPinConstraint -side {top bottom} -layer {M2}
+setPinConstraint -side {right left} -layer {M3}
+floorPlan -r 1 0.7 13 13 13 13
+
+
+########### IO Placement #########
+setPlaceMode -fp false -placeIOPins 1 
+
+
+###########################
+### ADD Ring #####
+############################
+addRing -nets {VDD VSS} -type core_rings -follow core -layer {top metal5 bottom metal5 left metal6 right metal6} -width 4.5 -spacing 2 -offset 2
+
+################################
+## Global VSS GRID generation ##
+################################
+
+addStripe \
+ -set_to_set_distance 6 \
+ -spacing 2 \
+ -xleft_offset 0.7 \
+ -direction vertical \
+ -layer M6 \
+ -width 0.35 \
+ -nets VSS
+addStripe \
+ -set_to_set_distance 6 \
+ -spacing 2 \
+ -ybottom_offset 0.7 \
+ -direction horizontal \
+ -layer M5 \
+ -width 0.35 \
+ -nets VSS 
+
+#suspend
+
+###################################################
+## fft16 Low Power Domain RING generation ##
+###################################################
+
+selectObject Group fft16_LO
+#cutRow -halo 0.8 -selected 
+
+
+deselectAll
+selectObject Group fft16_LO
+addRing \
+ -stacked_via_top_layer AP \
+ -around power_domain \
+ -type block_rings \
+ -nets {VDD1} \
+ -layer {bottom M3 top M3 right M4 left M4} \
+ -width 2.5\
+ -spacing 1 \
+ -offset 0
+
+###################################################
+## fft16 Low Power Domain GRID generation ##
+###################################################
+setAddStripeMode -extend_to_closest_target ring
+addStripe \
+ -over_power_domain 1 \
+ -set_to_set_distance 3 \
+ -spacing 2 \
+ -xleft_offset 0.7 \
+ -layer M6 \
+ -width 0.35 \
+ -nets VDD1
+
+addStripe \
+ -over_power_domain 1 \
+ -set_to_set_distance 3 \
+ -ybottom_offset 0.7 \
+ -spacing 2 \
+ -direction horizontal \
+ -layer M5 \
+ -width 0.35 \
+ -nets VDD1
+
+
+####################################################
+## Always-On VDD TOP Power Domain GRID generation ##
+####################################################
+addStripe \
+ -nets VDD \
+ -direction vertical \
+ -layer M6 \
+ -xleft_offset 3.7 \
+ -width 0.35 \
+ -spacing 2 \
+ -set_to_set_distance 6 
+
+addStripe \
+ -nets VDD \
+ -direction horizontal \
+ -layer M5 \
+ -ybottom_offset 3.7 \
+ -width 0.35 \
+ -spacing 2 \
+ -set_to_set_distance 6
+
+############################################
+####### Create Physical Pin ################
+############################################
+
+createPhysicalPin -net VSS -layer metal6 -rect {97.83 97.2215 98.0535 101.7905} VSS
+createPhysicalPin -net VDD -layer metal6 -rect {91.0245 90.6395 91.216 99.33} VDD
+createPhysicalPin -net VDD1 -layer metal4 -rect {85.538 56.9285 100.3125 56.7385} VDD1 
+
+
+###############################################
+##### SRoute##################################
+##############################################
+
+setSrouteMode -corePinJoinLimit 6                                       
+sroute -connect corePin -nets VSS -allowJogging 0 -corePinMaxViaWidth 60
+sroute -connect corePin -nets VDD1 -powerDomains fft16_LO -allowJogging 0 -corePinMaxViaWidth 60
+sroute -connect corePin -nets VDD -powerDomains TOP -allowJogging 0 -corePinMaxViaWidth 60
+
+
+###############
+## Reporting ##
+###############
+#report_timing > ./newReport/floorplanCPF/fft16Cpf.time.rpt
+#report_area > ./newReport/floorplanCPF/fft16Cpf.area.rpt
+#report_power > ./newReport/floorplanCPF/fft16Cpf.power.rpt
+
+
+report_timing > ../approx/report/trunck_k6/floorplan/fft16Cpf.time.rpt
+report_area > ../approx/report/trunck_k6/floorplan/fft16Cpf.area.rpt
+report_power > ../approx/report/trunck_k6/floorplan/fft16Cpf.power.rpt
+
+
+#Drc checking
+verifyGeometry
+
+##Design saving
+#saveDesign ../dataOut/designs/floorplanCpf.enc
+
+saveDesign ../approx/design/trunck_k6/floorplanCpf.enc
+
+#+END_SRC
 
