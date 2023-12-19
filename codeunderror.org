@@ -32,6 +32,345 @@ set init_design_set_top 1
 #+END_SRC
 
 #+BEGIN_SRC
+#************************#
+# top 50 innovus command #
+#************************#
+50 most useful dbGet commands for Innovus
+June 5, 2022 by Team VLSI
+In physical design domain, there are mainly two EDA tools which are widely used in ASIC Industry. One is Cadence Innovus and the other is ICC2 from Synopsys. Both the tools are equally good and continous advancement is going on. In this article you will get an overview of a very popular dbGet command of Innovus tool.  dbGet command is very useful and handy to use  and without proper knowledge of dbGet one can not use the innovus in an efficient way. So If you are using or going to use Innovus in your project, you must explore the dbGet of Innovus.
+
+Here we will learn some basics or dbGet command and see a very good collection of  50 most useful dbGet commands. This set of dbGet commands will help you to analyze your design in a better way, make changes in your design  and will also help you to write the tcl script as per your requirement. 
+
+Backgrounds
+ 
+
+dbGet : Returns object and attribute information for a specific database object in the design
+
+Syntax : 
+
+dbGet [-p num] [-u] [-regexp] [-d] {obj | objList | head | top | selected } [.objectType] … [.attributeName | .? | ..? | .??] [pattern] [expression] [-v] [-e] [-i] [-help]
+
+Parameters 
+
+-p# : Specify the level to transverse back through the specified objects for the query 
+
+-e : To avoid NULL (0x0) pointer and results from being printed
+
+-u : Removes duplicate objects
+
+-regexp : uses regular expression pattern matching 
+
+Explanation with an example
+
+dbGet top.insts.cell.name  
+
+top –> is the pointer of the top cell
+
+.insts –> is the list of pointers to the instances in the top cell
+
+.cell –> is the list of pointers to the master cell of each instance
+
+.name –> is the master cell name
+
+Examples of dbGet Command
+1. Find the top name of the design
+
+dbGet top.name
+
+2. Get all the attributes of a selected object 
+
+dbGet selected.??
+
+If you press tab key after a . (dot) it will display all the possible options there.  you can try
+
+dbGet top.<press tab here>
+
+3. Get the name of the selected object (instance, net, ports or any other objects).
+
+dbGet selected.name
+
+4. Get the cell name of a selected  Instance. 
+
+dbGet selected.cell.name
+
+5. Get all the pins of a selected  Instance. 
+
+dbGet selected.cell.terms.name
+
+6. Get the database unit 
+
+dbGet head.dbUnits
+
+7. Get the manufacturing grid value 
+
+dbGet head.mfgGrid
+
+8. Get all  the layers name
+
+dbGet head.layers.name
+
+Please let me know in the comment that it returns only routing layers or base layers too
+
+9. Get all  the routing layers name
+
+dbGet [dbGet head.layers.type routing -p].name
+
+Alternatively, getAllLayers metal can also be used
+
+10. Get the parameters of any particular routing layer (like Masks, Directions, pitch, minWidth, minSpacing etc )
+
+dbGet [dbGet [dbGet head.layers.type routing -p].name *2 -p].minWidth
+
+11. Get the information of a cell which is present in std. cell library but not in design.
+
+dbGet head.libCells.name <cell_name> 
+
+Then you can find many things like all available Drive strengths, Vt type etc.
+
+You can also use another way : get_lib_cells <cell_name>
+
+12. Get the pointers of all the cells which are used more than 100 times in the design
+
+dbGet [dbGet head.allCells.objType libCell -p]{.numRefs > 100}
+
+13. Get all the inverter cells available in the library.
+
+dbGet [dbGet head.libCells.isInverter 1 -p].name 
+
+14. Get  the size of your block
+
+dbGet top.fPlan.box.size
+
+15. Get  the area of a block
+
+dbGet top.fPlan.area
+
+16. Get all the power domains availble in the design
+
+dbGet top.fPlan.groups.pd.name 
+
+17. Find all the block level ports name 
+
+dbGet top.terms.name
+
+18. Find the metal layers used in block level IO ports
+
+dbGet top.terms.pins.allShapes.layer.name -u
+
+19. Get the count of block level ports 
+
+dbGet top.numTerms
+
+or you can also use
+
+llength [dbGet top.terms]
+
+20. Get all input and output ports 
+
+dbGet top.numInputs
+
+llength [dbGet top.terms.inOutput 1 -p]
+
+21. Get all clock and scan clock pins
+
+llength [dbGet top.terms.isClk 1 -p]
+
+llength [dbGet top.terms.isScanClk 1 -p]
+
+22. Get the edge number where a port is placed
+
+dbGet [dbGet top.terms.name <port_name> -p].edge 
+
+23. Get all the feedthru ports name which is placed on a particular edge number (suppose 3)
+
+dbGet [dbGet top.terms.edge 3 -p].name *ft*  
+
+24. Get the name of all the instances present in the design. 
+
+dbGet top.insts.name
+
+25. Get all the instances name of a particular cell 
+
+dbGet [dbGet top.insts.cell.name <cell_name> -p2].name
+
+26. Get all the physical cells present in the design 
+
+dbGet [dbGet top.insts.cell.isPhyOnly 1 -p].name -u
+
+Suppose you want to print all the names in a new line, you can use join them like below.
+
+join [dbGet [dbGet top.insts.cell.isPhyOnly 1 -p].name -u ] \n
+
+Suppose you want only a number that how many types of physical cells have been used, llength can be used in that case before the dbGet command.
+
+llength [dbGet [dbGet top.insts.cell.isPhyOnly 1 -p].name -u ]
+
+27. Find the total number of physical cell instances used in the design  
+
+llength [dbGet top.insts.cell.isPhyOnly 1 -p2]
+
+28. Find all the instances which have only one pins (like tie cells, antenna cells)
+
+llength [dbGet top.insts.cell.numTerms 1 -p2]
+
+29. Find total numbers of well tap instances used in the design 
+
+llength [dbGet top.insts.cell.name <*TAP*> -p2]
+
+Note: Depending on the standard cell library nomenclature the keyword *TAP* could be vary
+
+30. Find total types of well tap cells used in the design 
+
+llength [dbGet top.insts.cell.name <*TAP*> -p -u]
+
+Note: -p may be used in place of -p1, both have same meaning
+
+31. Find  the name of all uniq types of well tap cells used in the design 
+
+dbGet [dbGet top.insts.cell.name <*TAP*> -p].name -u
+
+For better visibility print all of them in new line
+
+join [dbGet [dbGet top.insts.cell.name <*TAP*> -p].name -u] \n
+
+32. Find the name of all the unique types of boundary cells used in the design
+
+dbGet [dbGet top.insts.cell.name <*BOUNDARY*> -p].name -u
+
+Note: you need to verify the keyword *BOUNDARY* based on your standard cell name.
+
+33. Find the name of all the macro’s in your design
+
+dbGet [dbGet top.insts.cell.baseClass block -p2].name
+
+Suppose you want to exclude few macros like ESD cells or any othere from this list, then you can use -v option with this. like below.
+
+dbGet [dbGet top.insts.cell.baseClass block -p2].name -v <uniq_name_pattern_of those_macros>
+
+llength will return the count of macros.
+
+34. Find the name of all sequential elements (registers/flip flops) in the design
+
+dbGet [dbGet top.insts.cell.isSequential 1 -p2].name
+
+35. Find the name of all the don’t touch instance
+
+dbGet [dbGet top.insts.isDontTouch 1 -p].name
+
+36. Get the name of all the instance in your design which has fixed placement status
+
+dbGet [dbGet top.insts.pStatus fixed -p].name
+
+37. Find the lower left cordinate of an instance 
+
+dbGet [dbGet top.insts.name <inst_name> -p].pt
+
+Or you can first select the instance and then use following command.
+
+dbGet selected.pt
+
+In case you want only x-coordinate or only y coordinate, you may use following command.
+
+dbGet selected.pt_x 
+
+dbGet selected.pt_y
+
+38. Find the width and height of a cell
+
+set width [dbGet [dbGet top.insts.cell.name <cell_name> -p].size_x -u]
+
+set height [dbGet [dbGet top.insts.cell.name <cell_name> -p].size_y -u]
+
+Or we can select the instance and use following command
+
+dbGet [dbGet selected.cell.name <cell_name> -p].size_x -u
+
+Or If that cell is not present in the design we can use following command
+
+dbGet [dbGet head.libCells.name <cell_name> -p].size_x -u
+
+39. Find the cordinate of a pin of an instance 
+
+dbGet [dbGet top.insts.instTerms.name <inst_term_name> -p].pt
+
+40. Find the placement status of an instance
+
+dbGet [dbGet top.insts.name <inst_name> -p].pStatus
+
+Note: Apart from pStatus there are two more status for an instace called ctsStatus and effectiveStatus.  effectiveStatus is the final status based on the latest pnr stage.
+
+We can also change the pStatus of an instance using dbSet command.
+
+dbSet [dbGet top.insts.name <inst_name> -p].pStatus <fixed | placed >
+
+41. Get the name of all the nets in the design
+
+dbGet top.nets.name 
+
+42. Get all the power and ground nets name in the design 
+
+dbGet [dbGet top.nets.isPwrOrGnd 1 -p].name
+
+43. Get all the signal nets only (except clock, power nad ground) 
+
+dbGet [dbGet [dbGet [dbGet top.nets.isClock 0 -p].isPwr 0 -p].isGnd 0 -p].name
+
+44. Find the name of all the nets with a particular pattern in net name 
+
+dbGet top.nets.name <*pattern*> 
+
+45. Find the name of all the CTS clock nets
+
+dbGet [dbGet top.nets.isCTSClock 1 -p].name 
+
+46. Find the net name connected to a pin of an instance
+
+dbGet [dbGet top.insts.instTerms.name <full_inst_pin_name> -p2].net.name 
+
+47. Get the routing status of a net 
+
+dbGet [dbGet top.nets.name <net_name>].wires.status
+
+Further we can change the routing status of the net using dbSet command 
+
+dbSet [dbGet top.nets.name <net_name>].wires.status <fixed | routed>
+
+48. Get all the NDR used in the design
+
+dbGet head.rules.name
+
+49. llx lly urx ury all four coordinate in four variable of an instance 
+
+selectInst <inst_name>
+
+set box [dbGet [dbGet top.insts.name <inst_name> -p].box]
+
+foreach {x1 y1 x2 y2} [lindex $box 0] {break;}
+
+50. Get object type of an unknown object
+
+set un selected.name
+
+dbGet [dbGetObjByName $un].objType 
+
+51. Get the count of ULVT cells in the design (excluding  physical only cells)
+
+llength [dbGet [dbGet top.insts.isPhyOnly 0 -p].cell.name *ULVT* -e]
+
+52. Get the area of violation marker and search any object on that area
+
+set marker <marker_name>
+
+set area [dbGet [dbGet top.markers.userType $marker -p].box]
+
+dbQuery -area $area -objType sViaIst
+
+Note: marker name is nothing but your violation’s name itself (like VIA0.S.2.1.s ).  You need to load those markers first and then you need to use the 2nd command in foreach loop.
+
+The author has tried to take full care of typing errors and any other syntax errors but if you observe anything is not right, please let us know in the comment section so that other readers should not face the same error or confusion.
+
+**************###*********************
+
 innovus 1> set init_
 init_abstract_view                init_check_output_pin_constant
 init_cpf_file                     init_design_netlisttype
