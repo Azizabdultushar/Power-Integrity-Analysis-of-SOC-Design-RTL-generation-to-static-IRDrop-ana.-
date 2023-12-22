@@ -212,8 +212,23 @@ Repeated dynamic IR drop simulations.
 | power format .cpf  |   |                                 |
 | spef  file .spef   |   |                                 |
 -----------------------------------------------------
-* Innovus PnR flow
-
+* Design flow flow
+** Synthesis flow
++ Writing behavioral verilog code
++ selection of technology and libraries or node
++ setting operating environment
++ setting design constraints
+how fast synthesesis circuit to run
+how big the circuit should be
+and other contraints
+setup speed 
+setup area
+how hard compiler tries to optimize the behavairal synthesis
+commands are: create_clock: s for synthesis, et speed goal, set_clock_latancy, set_propagated_clock, set_clock_uncertainty, set_clock_transition, set_input_delay. set_output_delay, set_max_area
++ output files: 
+.v
+.sdc
+.rep
 Gate level netlist
 .v or .vhd
 
