@@ -514,75 +514,6 @@ library(pso_ring_wc) {
 #+END_VERSE
 
 
-
-** Some important Command
-#+BEGIN_VERSE
-
-innovus 39> dbGet top.    
-bumps                 designLib              designView
-dftDontScan           fPlan                  hInst
-insts                 isProtoModelCommitted  isProtoModelSpecified
-markers               name                   nets
-numBidirs             numInputs              numInsts
-numNets               numPGTerms             numPhysInsts
-numPhysNets           numPhysTerms           numTerms
-objType               pds                    pgNets
-pgTerms               physInsts              physNets
-physTerms             pinToCornerDist        pkgComponents
-pkgObjects            props                  ptns
-readOnly              restoreDbDesignName    restoreDbToolName
-restoreDbToolVersion  seqReasonDeleted       statusClockSynthesized
-statusDetailRouted    statusIoPlaced         statusPlaced
-statusPowerAnalyzed   statusRCExtracted      statusRouted
-statusScanOpted       symmetryR90            symmetryX
-symmetryY             terms                  texts
-#############################################################
-
-innovus 39> dbGet selected.
-area                bottomPadding                box
-box_area            box_ll                       box_llx
-box_lly             box_size                     box_sizex
-box_sizey           box_ur                       box_urx
-box_ury             boxes                        cell
-defName             dftDontScan                  dontInvertPhase
-dontMergeMultibit   dontSplitMultibit            dontTouch
-dontTouchEffective  dontTouchSources             group
-hInst               hdlName                      instTerms
-isAlwaysOn          isAlwaysOnBuffer             isFixedMask
-isHaloBlock         isInsideIlm                  isIsolation
-isJtagElem          isLegal                      isLevelShifter
-isPhysOnly          isSpareGate                  ldeDistanceLeft
-ldeDistanceRight    leftPadding                  lithoHalo
-maskShift           multibitFlopRejectionReason  name
-objType             orient                       pHaloBot
-pHaloBox            pHaloBox_area                pHaloBox_ll
-pHaloBox_llx        pHaloBox_lly                 pHaloBox_size
-pHaloBox_sizex      pHaloBox_sizey               pHaloBox_ur
-pHaloBox_urx        pHaloBox_ury                 pHaloLeft
-pHaloPoly           pHaloRight                   pHaloTop
-pStatus             pStatusCTS                   pStatusEffective
-pd                  pgInstTerms                  props
-pt                  pt_x                         pt_y
-rHaloBotLayer       rHaloPoly                    rHaloSideSize
-rHaloTopLayer       rightPadding                 sdp
-topPadding          useCellsOnly
-
-############################################################
-innovus 40> dbGet head.    
-allCells             bottomRoutingLayer   cellEdgeSpacings
-dbUnits              eeqVariantSiteStart  eeqVariantYFlipTable
-finGridDirection     finGridOffset        finGridPitch
-instMaskShiftLayers  layers               libCells
-mfgGrid              numCellEeqVariants   objType
-props                ptnCells             routeTypes
-rules                sites                topCells
-topRoutingLayer      vCells               viaRuleGenerates
-
-
-###########################################################
-#+END_VERSE
-
-
 #+BEGIN_SRC elisp :results none
 Primary Lab Data Directory Structure
 +--voltus_labs
@@ -655,7 +586,35 @@ and init power and gnd in the time of importing design is necessary this is how 
 *** TODO [#65] Def exporting script
 *** TODO [#80] save design in .enc format
 
+* Verilog Basics
+verilog has two form of comments
+/* this is a multiline
+comments */
+// this is a single line comments
 
+signal value or value set of any signals [0 1 x z]
+0 = low
+1 = high
+x = unknown
+z = high impedance
+
+Data types: 
+wire = it is used to carry signal values
+normally in default value z
+reg = hardware register
+integer look like b2'00011
+timescale statement look like 'timescale 10ns/1ns
+
+Modules and programs Units
+A module is the basic unit of hardware specification.
+module module_name(port_list);
+parameter_list
+port_declarations
+wire wire_declarations
+reg reg_declarations
+submodule_instantiations
+body
+endmodule
 
 
 
