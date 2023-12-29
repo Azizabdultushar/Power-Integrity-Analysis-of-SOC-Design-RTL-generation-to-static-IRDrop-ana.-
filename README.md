@@ -1,5 +1,5 @@
 # Documentation
-![OpenRAM Logo](../../images/OpenRAM_logo_yellow_transparent.svg)
+![Logo](./img/logo.jpeg)
 
 These pages provide the documentation of OpenRAM. You can use the links below to
 navigate through the documentation.
