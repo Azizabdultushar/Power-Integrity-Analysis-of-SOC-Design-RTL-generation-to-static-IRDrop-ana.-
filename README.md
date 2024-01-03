@@ -37,7 +37,7 @@ navigate through the documentation.
 * CPF is important for power intent design and this will automatically take care of the P/G pins connections and previously it was describe manually
   in the time of place and routing flow.
 * a proper CPF file will ensure the proper automatic insertion of retention flip-flop, level shifters, isolation cells also always on buffers.
-* Here we are using PDK45( a total 2K std cells) with 6 metal layers.
+* Here we are using PDK45( a total 2K std cells) with 6 metal (***where in this PDK,11 metal layers are avaiable***) layers(4 metal for std cell routing and 2 metal for P/G routing).
 * Design details
      * Block name: sparc_exu_alu consists of (adder + logic operation)
      * This block have a total 341 inputs and 192 outputs
@@ -69,7 +69,17 @@ navigate through the documentation.
     * so far, in KERNEL_LO domain needs to go Low to High (LVLLH ***level shifter cell***)
     * and sometimes we need to go to High to Low (LVLHL ***level shifter cell***)
     * To turn on KERNEL_PSO we need to insert ***Isolation cell*** by using naddsub_on signal.
-    * 
+    * For the switchable power domain we need ***Retention sequential element*** and ***Always ON*** cells
+    * Retention logic needs two pins VDD and ExtVDD. VDD can be **UP** /**DOWN**.
+    * AO buffer is needed for alway on powered.
+    * ***IMPORTANT*** Another way to saving power is adding clock gating function. **2** ways we can change general RTL
+      code into gated clock RTL 1. Changing RTL code with ANDED gate with clock 2. In the time of synthesis, we can set
+       `set_attribute lp_insert_clock_gating true /` this type of clock gated cell can easily changed into **integrated Gating cell**
+  ***TECHNOLOGY***
+* **Libraries** Following std cells libraries is required:
+* gsclib045_hvt:High voltage threshold:slow, low leakage
+* svt: standard voltage threshold
+* lvt: low voltage threshold
 
 
 
