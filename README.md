@@ -55,8 +55,8 @@ navigate through the documentation.
 
 
 * **Power shut off** is the most recent developed, an effective tecnique to reduced leakge current. It is using **power gating**, **sleep transistors**, to shut off the domain. Sleep transistor could be PMOS or NMOS.
-* PMOS sleep transistor used to switch VDD suppy, hence name is **header switch**
-* NMOS sleep transistor used to control VSS supply, hence name is **footer switch**
+* PMOS sleep transistor used to switch VDD suppy, hence name is **header cell switch**
+* NMOS sleep transistor used to control VSS supply, hence name is **footer cell switch**
 * Optimal sleep transistors designs and implementations are challenging due various effects as like design performence,area, routability,performance,power, signal/power integrity.
 * Since this is multi voltage design we choose VDD, VDD1
 * **important** Since we are using different power domains means we have different voltage domains, so clock frequency also modified according to multi domain area.
@@ -65,6 +65,16 @@ navigate through the documentation.
     * eco_mode(sparce_exu_alu_ecomode.sdc)
     * sleep_mode(sparce_exu_alu_sleepmode)
 * These 3 modes of operations combined with 2 library corners 1. ***worst case*** 2. ***Best case*** and with 2 check type: 1. ***Setup*** 2. ***Hold***
+* As we have different power supplies so we need level shifters.
+    * so far, in KERNEL_LO domain needs to go Low to High (LVLLH ***level shifter cell***)
+    * and sometimes we need to go to High to Low (LVLHL ***level shifter cell***)
+    * To turn on KERNEL_PSO we need to insert ***Isolation cell*** by using naddsub_on signal.
+    * 
+
+
+
+
+
 
 * What's MCMM
 MCMM stands for: Multi-Corner Multi-Mode (static timing analysis used in the design of digital ICs)
