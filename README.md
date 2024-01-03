@@ -80,10 +80,9 @@ navigate through the documentation.
 * gsclib045_hvt:High voltage threshold:slow, low leakage
 * svt: standard voltage threshold
 * lvt: low voltage threshold
-
-
-
-
+* ***Important*** in order to limit the routing layer we can use this code snippet `M1: Width 0.06µm / Thickness 1500Å` and `M2-M6: Width 0.08 µm /Thickness 1800Å`
+* ***important*** to use linux command type `sh` to use innovus command `innovus`  or `exit`
+* 
 
 
 * What's MCMM
@@ -100,10 +99,6 @@ Corners are not dependent on functional settings; they are meant to capture vari
 
 Example:
 Multi-mode multi-corner (MMMC) analysis refers to performing STA across multiple operating modes, PVT corners and parasitic interconnect corners at the same time. For example, consider a DUA that has four operating modes (Normal, Sleep, Scan shift, Jtag), and is being analyzed at three PVT corners (WCS, BCF, WCL) and three parasitic interconnect corners (Typical, Min C, Min RC)
-
- 
-
-
 
 
 There are a total of thirty six possible scenarios at which all timing checks, such as setup, hold, slew, and clock gating checks can be performed. Running STA for all thirty six scenarios at the same time can be prohibitive in terms of runtime depending upon the size of the design. It is possible that a scenario may not be necessary as it may be included within another scenario, or a scenario may not be required. For example, the designer may determine
