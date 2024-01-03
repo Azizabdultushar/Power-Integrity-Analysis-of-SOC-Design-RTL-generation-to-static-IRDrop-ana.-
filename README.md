@@ -33,22 +33,34 @@ navigate through the documentation.
 
 
 
-## OpenRAM Dependencies
-In general, the OpenRAM compiler has very few dependencies:
-+ Git
-+ Make
-+ Python 3.5 or higher
-+ Various Python packages (pip install -r requirements.txt)
-+ Anaconda
+## Advanced PnR process
+* CPF is important for power intent design and this will automatically take care of the P/G pins connections and previously it was describe manually
+  in the time of place and routing flow.
+* a proper CPF file will ensure the proper automatic insertion of retention flip-flop, level shifters, isolation cells also always on buffers.
+* Here we are using PDK45( a total 2K std cells) with 6 metal layers.
+* Design details
+     * Block name: sparc_exu_alu consists of (adder + logic operation)
+     * This block have a total 341 inputs and 192 outputs
+     * Clock speed is 330MHz
+* The goal is to run low power physical implementation on the design.
 
-Commercial tools (optional):
-* Spice Simulator
-    * Hspice  I-2013.12-1 (or later)
-    * CustomSim 2017 (or later)
-* DRC
-    * Calibre 2017.3\_29.23
-* LVS
-    * Calibre 2017.3\_29.23
+* POWER DOMAIN: Each part of the design with different voltage corresponds to a power domain.
+* Design: TOP =sparc_exu_alu² which is contains three power domain: **TOP; KERNEL_LO; and KERNEL_PSO**;
+* TOP: **Always on domain**, KERNEL_PSO:**Power shutdown domain**, KERNEL_LO: **able to operate the same volt or lower voltage level**
+* So all these different power domain must be define in CPF file as **Power_mode** definition.
+     * So far here we have 3 power mode as we have three power domain
+       1.**Fast** = top:1.2v, Kernel_pso:1.2v, kernel_Lo:1.2v
+       2.**Eco** = top:1.2v, Kernel_pso:1.2v, kernel_Lo:1.0v
+       3.**Sleep** = top:1.2v, Kernel_pso:0 v(shutoff), kernel_Lo:1.0v
+
+
+* **Power shut off** is the most recent developed, an effective tecnique to reduced leakge current. It is using **power gating**, **sleep transistors**, to shut off the domain. Sleep transistor could be PMOS or NMOS.
+* PMOS sleep transistor used to switch VDD suppy, hence name is **header switch**
+* NMOS sleep transistor used to control VSS supply, hence name is **footer switch**
+* Optimal sleep transistors designs and implementations are challenging due various effects as like design performence,area, routability,performance,power, signal/power integrity.
+* Since this is multi voltage design we choose VDD, VDD1
+          
+  
 
 
 
