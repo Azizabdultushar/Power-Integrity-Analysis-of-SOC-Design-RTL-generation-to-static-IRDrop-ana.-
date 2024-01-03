@@ -64,10 +64,30 @@ navigate through the documentation.
     * fast_mode(sparce_exu_alu_fastmode.sdc)
     * eco_mode(sparce_exu_alu_ecomode.sdc)
     * sleep_mode(sparce_exu_alu_sleepmode)
-* these 3 modes of operations combined with 2 library corners 1. ***worst case*** 2. ***Best case*** and with 2 check type: 1. ***Setup*** 2. ***Hold***
-*  
-          
-  
+* These 3 modes of operations combined with 2 library corners 1. ***worst case*** 2. ***Best case*** and with 2 check type: 1. ***Setup*** 2. ***Hold***
+
+* What's MCMM
+MCMM stands for: Multi-Corner Multi-Mode (static timing analysis used in the design of digital ICs)
+
+* What's a Mode
+
+A mode is defined by a set of clocks, supply voltages, timing constraints, and libraries. It can also have annotation data, such as SDF or parasitics files.
+Many chip have multiple modes such as functional modes, test mode, sleep mode, and etc.
+
+* What's a Corner
+A corner is defined as a set of libraries characterized for process, voltage, and temperature variations.
+Corners are not dependent on functional settings; they are meant to capture variations in the manufacturing process, along with expected variations in the voltage and temperature of the environment in which the chip will operate.
+
+Example:
+Multi-mode multi-corner (MMMC) analysis refers to performing STA across multiple operating modes, PVT corners and parasitic interconnect corners at the same time. For example, consider a DUA that has four operating modes (Normal, Sleep, Scan shift, Jtag), and is being analyzed at three PVT corners (WCS, BCF, WCL) and three parasitic interconnect corners (Typical, Min C, Min RC)
+
+ 
+
+
+
+
+There are a total of thirty six possible scenarios at which all timing checks, such as setup, hold, slew, and clock gating checks can be performed. Running STA for all thirty six scenarios at the same time can be prohibitive in terms of runtime depending upon the size of the design. It is possible that a scenario may not be necessary as it may be included within another scenario, or a scenario may not be required. For example, the designer may determine
+that scenarios 4, 6, 7 and 9 are not relevant and thus are not required. Also, it may not be necessary to run all modes in one corner, such as Scan shift or Jtag modes may not be needed in scenario 5. STA could be run on a single scenario or on multiple scenarios concurrently if multi-mode multicorner capability is available.
 
 
 
