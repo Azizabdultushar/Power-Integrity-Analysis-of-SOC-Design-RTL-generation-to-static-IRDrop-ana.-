@@ -59,6 +59,13 @@ navigate through the documentation.
 * NMOS sleep transistor used to control VSS supply, hence name is **footer switch**
 * Optimal sleep transistors designs and implementations are challenging due various effects as like design performence,area, routability,performance,power, signal/power integrity.
 * Since this is multi voltage design we choose VDD, VDD1
+* **important** Since we are using different power domains means we have different voltage domains, so clock frequency also modified according to multi domain area.
+* Since here we have 3 power mode so we will get 3 different timing constraint sets ***(SDC)***
+    * fast_mode(sparce_exu_alu_fastmode.sdc)
+    * eco_mode(sparce_exu_alu_ecomode.sdc)
+    * sleep_mode(sparce_exu_alu_sleepmode)
+* these 3 modes of operations combined with 2 library corners 1. ***worst case*** 2. ***Best case*** and with 2 check type: 1. ***Setup*** 2. ***Hold***
+*  
           
   
 
