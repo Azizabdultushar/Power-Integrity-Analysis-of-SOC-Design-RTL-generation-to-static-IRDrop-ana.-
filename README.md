@@ -49,14 +49,14 @@ navigate through the documentation.
 * TOP: **Always on domain**, KERNEL_PSO:**Power shutdown domain**, KERNEL_LO: **able to operate the same volt or lower voltage level**
 * So all these different power domain must be define in CPF file as **Power_mode** definition.
      * So far here we have 3 power mode as we have three power domain
-       ==1.**Fast** = top:1.2v, Kernel_pso:1.2v, kernel_Lo:1.2v==
-       ==2.**Eco** = top:1.2v, Kernel_pso:1.2v, kernel_Lo:1.0v==
-       ==3.**Sleep** = top:1.2v, Kernel_pso:0 v(shutoff), kernel_Lo:1.0v==
+       1.**Fast** = top:1.2v, Kernel_pso:1.2v, kernel_Lo:1.2v
+       2.**Eco** = top:1.2v, Kernel_pso:1.2v, kernel_Lo:1.0v
+       3.**Sleep** = top:1.2v, Kernel_pso:0 v(shutoff), kernel_Lo:1.0v
 
 ⛺
 * **Power shut off** is the most recent developed, an effective tecnique to reduced leakge current. It is using **power gating**, **sleep transistors**, to shut off the domain. Sleep transistor could be PMOS or NMOS.
-* PMOS sleep transistor used to switch VDD suppy, hence name is **header cell switch**
-* NMOS sleep transistor used to control VSS supply, hence name is **footer cell switch**
+* PMOS sleep transistor used to switch ==VDD suppy==, hence name is **header cell switch**
+* NMOS sleep transistor used to control ==VSS supply==, hence name is **footer cell switch**
 * Optimal sleep transistors designs and implementations are challenging due various effects as like design performence,area, routability,performance,power, signal/power integrity.
 * Since this is multi voltage design we choose VDD, VDD1
 * **important** Since we are using different power domains means we have different voltage domains, so clock frequency also modified according to multi domain area.
