@@ -8,7 +8,7 @@ navigate through the documentation.
 
 ## Table of Contents
 1. [Advanced PnR process](#Advanced-PnR-process)
-1. [Supported Technologies](#supported-technologies)
+1. [Conformal:Verification](#Conformal:Verification)
 1. [Online Playground](./OpenRAM.ipynb)
 1. [Basic Setup](./basic_setup.md#go-back)
 1. [Basic SRAM Usage](./basic_usage.md#go-back)
@@ -126,16 +126,11 @@ source /eda/cadence/2022-23/scripts/CONFRML_22.10.200_RHELx86.csh
 #xrun
 source /eda/cadence/2022-23/scripts/XCELIUM_22.03.005_RHELx86.csh
 ```
-## Supported Technologies
-* NCSU FreePDK 45nm
-    * Non-fabricable but contains DSM rules
-    * Calibre or klayout for DRC/LVS
-* MOSIS 0.35um (SCN4M\_SUBM)
-    * Fabricable technology
-    * Magic/Netgen or Calibre for DRC/LVS
-* Skywater 130nm (sky130)
-    * Fabricable technology
-    * Magic/Netgen or klayout
+## Conformal:Verification
+* Before starting any implementation, It´s always good practice to check the quality of the inputs for low power flow, especially the CPF file.
+* *Conformal LowPower Verification tool*
+    - Need sanity check of CPF file
+    - read both RTL netlist and CPF file
 
 
 
