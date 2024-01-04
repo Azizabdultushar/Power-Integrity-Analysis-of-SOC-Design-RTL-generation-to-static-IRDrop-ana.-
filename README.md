@@ -109,10 +109,10 @@ Multi-mode multi-corner (MMMC) analysis refers to performing STA across multiple
 There are a total of thirty six possible scenarios at which all timing checks, such as setup, hold, slew, and clock gating checks can be performed. Running STA for all thirty six scenarios at the same time can be prohibitive in terms of runtime depending upon the size of the design. It is possible that a scenario may not be necessary as it may be included within another scenario, or a scenario may not be required. For example, the designer may determine
 that scenarios 4, 6, 7 and 9 are not relevant and thus are not required. Also, it may not be necessary to run all modes in one corner, such as Scan shift or Jtag modes may not be needed in scenario 5. STA could be run on a single scenario or on multiple scenarios concurrently if multi-mode multicorner capability is available.
 
-`[s_ids118@item0110 ~]$ cat .cshrc
+```
+[s_ids118@item0110 ~]$ cat .cshrc
 # license
 setenv LM_LICENSE_FILE "28211@item0096"
-
 #Innovus
 source /eda/cadence/2022-23/scripts/INNOVUSEXPORT_21.35.000_RHELx86.csh
 #genus
@@ -124,7 +124,8 @@ source /eda/cadence/2022-23/scripts/SSV_22.11.000_RHELx86.csh
 #conformal
 source /eda/cadence/2022-23/scripts/CONFRML_22.10.200_RHELx86.csh 
 #xrun
-source /eda/cadence/2022-23/scripts/XCELIUM_22.03.005_RHELx86.csh`
+source /eda/cadence/2022-23/scripts/XCELIUM_22.03.005_RHELx86.csh
+```
 ## Supported Technologies
 * NCSU FreePDK 45nm
     * Non-fabricable but contains DSM rules
