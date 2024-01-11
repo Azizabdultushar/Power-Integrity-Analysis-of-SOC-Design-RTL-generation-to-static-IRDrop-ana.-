@@ -1,5 +1,12 @@
 # Documentation
-![Logo](./img/logo.jpeg)
+![Logo](./img/logo.jpeg) 
+
+### Important tasks, 2023s – 2024s
+
+- [ ] Good understanding of CPF file
+- [x] Basics of verilog code
+- [x] Fault analysis of tcl code
+
 
 These pages provide the documentation of OpenRAM. You can use the links below to
 navigate through the documentation.
