@@ -8,7 +8,7 @@
 - [x] Fault analysis of tcl code
 
 
-These pages provide the documentation of OpenRAM. You can use the links below to
+These pages provide the documentation of IR drop analysis. You can use the links below to
 navigate through the documentation.
 
 
