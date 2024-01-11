@@ -136,7 +136,7 @@ source /eda/cadence/2022-23/scripts/XCELIUM_22.03.005_RHELx86.csh
 
 ## Implementation
 * cpf file (low power)🪚:sample
-  ```
+```
 set_cpf_version 2.0
 set_hierarchy_separator /
 set_design sparc_exu_alu
@@ -304,8 +304,7 @@ define_always_on_cell -cells "PBUFX2" -power_switchable VDD -power ExtVDD -groun
 identify_always_on_driver -pins {save nrestore}
 
 end_design
-
-  ```
+```
 
 
 
