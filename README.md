@@ -16,7 +16,7 @@ navigate through the documentation.
 ## Table of Contents
 1. [Advanced PnR process](#Advanced-PnR-process)
 1. [Conformal:Verification](#Conformal:Verification)
-1. [Online Playground](./OpenRAM.ipynb)
+1. [VERILOG](./verilog.md)
 1. [Basic Setup](./basic_setup.md#go-back)
 1. [Basic SRAM Usage](./basic_usage.md#go-back)
 1. [Basic ROM Usage](./basic_rom_usage.md#go-back)
