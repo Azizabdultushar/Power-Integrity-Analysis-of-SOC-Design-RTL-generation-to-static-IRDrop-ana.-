@@ -1,3 +1,7 @@
+https://acg.cis.upenn.edu/milom/cis371-Spring13/lab/textbook-verilog-tutorial/VOL/main.htm
+
+
+
 # History
 - Very first HDL is ISP.
 - The first HDL was ISP, invented by C. Gordon Bell and Alan Newell at Carnegie Mellon University and described in their book Computer Structures in 1972.
@@ -11,8 +15,3 @@
 - A verilog Model is composed of one or many modules
 - Module is sometimes called instances child instances module composed of parent instance module
 
----
-title: Node
----
-flowchart LR
-    id
