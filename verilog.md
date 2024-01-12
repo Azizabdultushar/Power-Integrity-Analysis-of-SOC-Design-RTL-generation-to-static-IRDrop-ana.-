@@ -1,1 +1,18 @@
+# History
+- Very first HDL is ISP.
+- The first HDL was ISP, invented by C. Gordon Bell and Alan Newell at Carnegie Mellon University and described in their book Computer Structures in 1972.
+- HiLo > Verilog and ISP > N dot simulator
+-  first implemented by Phil Moorby at Gateway Design Automation in 1984 and 1985
+-  acquired by Cadence and make it OpenSource for public
 
+
+
+# Building block
+- A verilog Model is composed of one or many modules
+- Module is sometimes called instances child instances module composed of parent instance module
+
+flowchart LR
+
+Or(Root Person)
+Or --- G1(Gen 1)
+Sp(Spouse) --- G1
