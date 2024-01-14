@@ -17,6 +17,6 @@ https://acg.cis.upenn.edu/milom/cis371-Spring13/lab/textbook-verilog-tutorial/VO
 
 ```mermaid
 graph TD;
-  A --> B;
-  B --> C;
-  C --> A;
+  TOP Module --> Sub module 1;
+  TOP Module --> Sub module 2 --> Sub sub module 1;
+
