@@ -18,7 +18,7 @@ https://acg.cis.upenn.edu/milom/cis371-Spring13/lab/textbook-verilog-tutorial/VO
 ```mermaid
 flowchart LR
 
-A[Hard] -->|Text| B(Round)
+A[Behaviral level] -->|RTL| B(Round)
 B --> C{Top module}
 C -->|One| D[Module 1] --> |Three| F[ sub sub module 1]
 C -->|Two| E[Module 2]
