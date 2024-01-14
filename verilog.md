@@ -19,7 +19,7 @@ https://acg.cis.upenn.edu/milom/cis371-Spring13/lab/textbook-verilog-tutorial/VO
 flowchart LR
 
 A[Hard] -->|Text| B(Round)
-B --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
+B --> C{Top module}
+C -->|One| D[Module 1] --> |Three| F[ sub sub module 1]
+C -->|Two| E[Module 2]
 
