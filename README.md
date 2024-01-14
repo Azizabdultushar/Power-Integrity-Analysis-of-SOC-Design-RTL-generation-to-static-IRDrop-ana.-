@@ -6,7 +6,10 @@
 - [ ] Good understanding of CPF file
 - [x] Basics of verilog code
 - [x] Fault analysis of tcl code
-
+### Important QUESTIONS TO SUPERVISOR ?
+- [ ] Cabtables is generated from foundry same as LEF file but QRC tech file is more accuarate which is generated from extractor tools?
+- [ ] I want to do this course https://community.cadence.com/cadence_blogs_8/b/di/posts/rtl-to-gdsii-flow-i-am-not-a-tool-but-can-help-you-implement-your-entire-design
+- [ ] 
 
 These pages provide the documentation of IR drop analysis. You can use the links below to
 navigate through the documentation.
@@ -375,7 +378,11 @@ identify_always_on_driver -pins {save nrestore}
 end_design
 ```
 
-
+## cabtable and QRC tech file
+* Cab table is less accurate table for capacitances values and it is the basic and extended cap tables for all capacitances such as
+  Coupling, fringe and area capacitances. Fringe capacitance is formed betw non overlapping sidewall of one conductor and surface/sidewall
+  of a second conductor on the same or different layer from the first one.
+* QRC tech is a binary file which will have more accurate characterization of the library elements.
 
 ## Technology and Tool Portability
 * OpenRAM is technology independent by using a technology directory that
