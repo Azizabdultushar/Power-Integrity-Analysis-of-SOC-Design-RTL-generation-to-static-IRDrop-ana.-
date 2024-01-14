@@ -384,23 +384,34 @@ end_design
   of a second conductor on the same or different layer from the first one.
 * QRC tech is a binary file which will have more accurate characterization of the library elements.
 
-## Technology and Tool Portability
-* OpenRAM is technology independent by using a technology directory that
-  includes:
-    * Technology's specific information
-    * Technology's rules such as DRC rules and the GDS layer map
-    * Custom designed library cells (6T, sense amp, DFF) to improve the SRAM
-      density.
-* For technologies that have specific design requirements, such as specialized
-  well contacts, the user can include helper functions in the technology
-  directory.
-* Verification wrapper scripts
-    * Uses a wrapper interface with DRC and LVS tools that allow flexibility
-    * DRC and LVS can be performed at all levels of the design hierarchy to
-      enhance bug tracking.
-    * DRC and LVS can be disabled completely for improved run-time or if
-      licenses are not available.
+## Command finding technique
+* Sometimes in the middle of an EDI session, you want to run a command but you can't remember the exact name, or the exact options. Sometimes you don't even know if a command exists to do what you want, but you'd like to find out if it does. Obviously, you can always look at the EDI System Text Command Reference. (And I recommend doing so to learn all about the various EDI commands. This is a manual that I use every single day!) But sometimes you just want a quick reference at your fingertips. This is available in the form of command-line help.
 
+Let's say you want to report the transition violations in your design. You know there's a command to do that, but you don't recall if it's report_tran_violation, reportTranViolation, or something else similar. At the EDI command prompt, you can type:
+
+encounter 31> help report_t*
+Multiple commands found:
+      report_timing
+      report_timing_derate
+      report_timing_format
+
+encounter 32> help reportT*
+Multiple commands found:
+      reportTimingDerate
+      reportTimingLib
+      reportTranViolation
+
+Ah, there it is! But what are the options for this command? Now that we know the exact command name, we can do this:
+
+encounter 33> help reportTranViolation
+Usage: reportTranViolation
+    reportTranViolation
+    [-all | -noGlobalNets]
+    [-selNetFile <selNetFileName>]
+    [-excNetFile <excNetFileName>]
+    [-useDrcMargin]
+    -outfile
+    <fileName>
 
 
 ## Contributors/Collaborators
