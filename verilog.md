@@ -15,3 +15,8 @@ https://acg.cis.upenn.edu/milom/cis371-Spring13/lab/textbook-verilog-tutorial/VO
 - A verilog Model is composed of one or many modules
 - Module is sometimes called instances child instances module composed of parent instance module
 
+```mermaid
+graph TD;
+  A --> B;
+  B --> C;
+  C --> A;
