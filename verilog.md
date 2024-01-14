@@ -16,7 +16,10 @@ https://acg.cis.upenn.edu/milom/cis371-Spring13/lab/textbook-verilog-tutorial/VO
 - Module is sometimes called instances child instances module composed of parent instance module
 
 ```mermaid
-graph TD;
-  TOP Module --> Sub module 1;
-  TOP Module --> Sub module 2 --> Sub sub module 1;
+flowchart LR
+
+A[Hard] -->|Text| B(Round)
+B --> C{Decision}
+C -->|One| D[Result 1]
+C -->|Two| E[Result 2]
 
