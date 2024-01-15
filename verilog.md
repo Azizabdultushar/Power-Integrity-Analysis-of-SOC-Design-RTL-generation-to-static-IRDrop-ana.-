@@ -23,3 +23,14 @@ B --> C{Top module}
 C -->|One| D[Module 1] --> |Three| F[ sub sub module 1]
 C -->|Two| E[Module 2]
 
+
+```mermaid
+tree
+CEO -> [department 1, department 2, department 3]
+[department 1] -> [job 1, job 2]
+[department 2] -> [job 3, job 4]
+[department 3] -> [job 5, job 6]
+[job 1, job 2] -> [department 1]
+[job 3, job 4] -> [department 2]
+[job 5, job 6] -> [department 3]
+[department 1, department 2, department 3] -> CEO
