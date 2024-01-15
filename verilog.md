@@ -24,13 +24,25 @@ C -->|One| D[Module 1] --> |Three| F[ sub sub module 1]
 C -->|Two| E[Module 2]
 
 
-```mermaid
-tree
-CEO -> [department 1, department 2, department 3]
-[department 1] -> [job 1, job 2]
-[department 2] -> [job 3, job 4]
-[department 3] -> [job 5, job 6]
-[job 1, job 2] -> [department 1]
-[job 3, job 4] -> [department 2]
-[job 5, job 6] -> [department 3]
-[department 1, department 2, department 3] -> CEO
+
+classDiagram
+    Animal <|-- Duck
+    Animal <|-- Fish
+    Animal <|-- Zebra
+    Animal : +int age
+    Animal : +String gender
+    Animal: +isMammal()
+    Animal: +mate()
+    class Duck{
+      +String beakColor
+      +swim()
+      +quack()
+    }
+    class Fish{
+      -int sizeInFeet
+      -canEat()
+    }
+    class Zebra{
+      +bool is_wild
+      +run()
+    }
