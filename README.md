@@ -21,7 +21,7 @@ navigate through the documentation.
 1. [Advanced PnR process](#Advanced-PnR-process)
 1. [Conformal Verification](#Conformal-Verification)
 1. [VERILOG](./verilog.md)
-1. [Basic Setup](./basic_setup.md#go-back)
+1. [Basic liberty file .lib](./timing_lib_file.md#go-back)
 1. [Basic SRAM Usage](./basic_usage.md#go-back)
 1. [Basic ROM Usage](./basic_rom_usage.md#go-back)
 1. [Python Library](./python_library.md#go-back)
