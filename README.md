@@ -22,7 +22,7 @@ navigate through the documentation.
 1. [Conformal Verification](#Conformal-Verification)
 1. [VERILOG](./verilog.md)
 1. [Basic liberty file .lib](./timing_lib_file.md#go-back)
-1. [Basic SRAM Usage](./basic_usage.md#go-back)
+1. [conformat rtl and cpf script checking](./conformal_sanity_check.md#go-back)
 1. [Basic ROM Usage](./basic_rom_usage.md#go-back)
 1. [Python Library](./python_library.md#go-back)
 1. [Bitcells](./bitcells.md#go-back)
@@ -146,60 +146,7 @@ source /eda/cadence/2022-23/scripts/XCELIUM_22.03.005_RHELx86.csh
   ***Design Power structure verification***
     - Need sanity check of CPF file
     - read both RTL netlist🍀 and CPF🍎 file
-* RTL and CPF sanity checking in conformal scripts
-```
-\\##############
-\\## Settings ##
-\\##############
-tclmode
-set_case_sensitivity on
-set_lowpower_option -netlist_style logical
-\\#Ignore identify_always_on_driver for RTL
-vpx set rule handling CPF_DES10 -Ignore
-\\#vpx set rule handling CPF_LIB41 -Ignore
-
-\\###################
-\\## Library Setup ##
-\\###################
-\\#LEF needed for power pin definition
-read_lef_file \
-../Library/lef/gsclib045_macro.lef \
-../Library/lef/gsclib045_hvt_macro.lef
-
-read_library -cpf ../DesignDataIn/cpf/sparc_exu_alu.cpf
-
-\\##################
-\\## Design Setup ##
-\\##################
- read_design -verilog2k -noelab \
-../DesignDataIn/src/lib/u1/u1.behV \
-../DesignDataIn/src/lib/m1/m1.behV \
-../DesignDataIn/src/common/swrvr_clib.v \
-../DesignDataIn/src/common/swrvr_dlib.v \
-../DesignDataIn/src/rtl/sparc_exu_aluor32.v \
-../DesignDataIn/src/rtl/sparc_exu_aluadder64.v \
-../DesignDataIn/src/rtl/sparc_exu_aluspr.v \
-../DesignDataIn/src/rtl/sparc_exu_alu_16eql.v \
-../DesignDataIn/src/rtl/sparc_exu_alulogic.v \
-../DesignDataIn/src/rtl/sparc_exu_aluzcmp64.v \
-../DesignDataIn/src/rtl/sparc_exu_aluaddsub.v \
-../DesignDataIn/src/rtl/sparc_exu_alu.v
-elaborate_design -root sparc_exu_alu
-
-report_floating_signals > ./reports/float.rpt
-report_tied_signals > ./reports/tied.rpt
-
-\\#########################
-\\## Power Intent Checks ##
-\\#########################
-read_power_intent -pre_synthesis -cpf ../DesignDataIn/cpf/sparc_exu_alu.cpf
-\\#commit_power_intent -insert_isolation -functional_insertion
-commit_power_intent -functional_insertion
-analyze_power_domain
-
-#exit
-```
-
+* RTL and CPF sanity checking in conformal scripts [conformat rtl and cpf script checking](./conformal_sanity_check.md#go-back)
 
 
 * **Power Intent**✳️ power intent describes the partitioning of a design into power domains. In some cases those are active power domains that are being turned on and turned off. In some cases they are simply voltage domains, which is different supply voltages used in the same chip.”
@@ -207,7 +154,7 @@ analyze_power_domain
 Power intent also sometimes describes the control signals that are used to control these power domains. It describes special cells that are required to implement such a design such as level shifters, retention cells and so on, various rules that the architecture of the chip and the usage of these cells should contain—things like ‘this domain is always on,’ or ‘this domain is off under certain conditions,’ or ‘this particular cell is used between these domains
 
 
-## Implementation
+## Implementation  [common_power_format script:sample](./common_power_file.md#go-back)
 * cpf file (low power)🪚:sample
 ```
 set_cpf_version 2.0
