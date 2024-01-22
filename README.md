@@ -23,7 +23,7 @@ navigate through the documentation.
 1. [VERILOG](./verilog.md)
 1. [Basic liberty file .lib](./timing_lib_file.md#go-back)
 1. [conformat rtl and cpf script checking](./conformal_sanity_check.md#go-back)
-1. [Basic ROM Usage](./basic_rom_usage.md#go-back)
+1. [common_power_format script:sample](./common_power_file.md#go-back)
 1. [Python Library](./python_library.md#go-back)
 1. [Bitcells](./bitcells.md#go-back)
 1. [Architecture](./architecture.md#go-back)
