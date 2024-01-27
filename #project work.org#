@@ -589,10 +589,6 @@ and init power and gnd in the time of importing design is necessary this is how 
 * DNN Accelerator GEMMINI IR DROP ANALYSIS.
 ** Early Rail Analysis (ERA) of GEMMINI
 
-#+BEGIN_COMMENT
-#+CAPTION: Early Rail Analysis Ground Bounce(VSS)
-#+NAME:   fig:SED-HR4049
 [[./img/ERA_VSS_Bounce_Gemmini.jpg]]
-#+END_COMMENT
 
 
