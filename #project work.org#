@@ -593,3 +593,6 @@ and init power and gnd in the time of importing design is necessary this is how 
 
 + Report: IR drop for VSS
 [[./rep/VSS.main.html]]
+
+
+[[./img/vss_era.jpg]]
