@@ -587,12 +587,16 @@ and init power and gnd in the time of importing design is necessary this is how 
 *** TODO [#80] save design in .enc format
 
 * DNN Accelerator GEMMINI IR DROP ANALYSIS.
+** Synthesize the RTL using PDK45
+** Used PDK45 lib and lef file for flooePlan
+** Extract tech library view and std library view files using QRC tech file (which I found in PDK45)
+** In floorPlan, I used extend to boundary for both vss and vdd stripe that will automatically implement VDD and VSS physical pad cell by default.
 ** Early Rail Analysis (ERA) of GEMMINI
++ Here is the report and IR drop distributions
 
 [[./img/ERA_VSS_Bounce_Gemmini.jpg]]
-
 + Report: IR drop for VSS
 [[./rep/VSS.main.html]]
-
-
 [[./img/vss_era.jpg]]
+
+
