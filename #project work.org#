@@ -607,5 +607,5 @@ and init power and gnd in the time of importing design is necessary this is how 
 *** Early Rail Analysis (ERA) of rocket core 
 + **1. Early Rail Analysis_VDD_rail**
 [[./img/rocket_era1_vdd.jpg]]
-+ Report: IR drop for VDD [[./rep/rocket.VDD.main.html][Report]]
++ Report: IR drop for VDD [[./rep/rocket_VDD.main.html][Report]]
 [[./img/rocket_era1_vddd.jpg]]
