@@ -93,12 +93,6 @@ the nominally zero voltage rises above zero.
   + vectorless
   + vectorbased
 
-
-
-
-
-
-
 + What is follow pin in VLSI physical design?
  In VLSI physical design, a follow pin is a special type of pin used to
  specify the routing direction of a net or signal. The follow pin is used
@@ -119,12 +113,25 @@ what text commands correspond to commands executed through the GUI.
 commands in the file are preceded with in the file.
 • innovus.logv – Similar to innovus.log but contains a more verbose amount of output. Useful for debugging
 
-
-
-
 ------------------------------------------------------------
 
 * Literature Review: A summary of books, papers, or online articles # Literature
+** paper 1: IncPIRD. Fast learning-based prediction of Incremental IR drop.
++ denser power grid. for ir requirements and spaser power grid. to give more routing resources
++ by using superposition and partitioning techniques, it is possible to extract electrical features- given soc floorplan and PDN.
++ using a mchine learning model to predict the updated static IR drop for each power node -having tap current source attached
++ Traditional way of ir violation fixing:
+1. macro/cell block movement
+2. macro/cell block change
+3. modification of PDN to have a denser grid
+4. adding/moving power pads
+5. reduce overdesigned PDN resources by replacing with sparser PDN grids
+6. removing power pads
+
++ input/given: LEF, DEF current distribution, technology file, IR drop file, power pad file of floorplan after modifications.
++ 
+
+
 
 ** paper 2: ML based Dyn IR drop pridiction for ECO*
 
