@@ -495,8 +495,7 @@ analyze_rail \
 [[./img/era1.JPG]]
 
 
-
-*  Benchmark circuit
+**  Benchmark circuit
 I was trying to compare my design with benchmark circuit from Literature review. git-hub site file list.
 + b19.bench
 + b19.blif
