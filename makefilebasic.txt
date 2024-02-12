@@ -1,0 +1,76 @@
+So far, Makefile is a snippet of code or script file, where you can automate the code,
+Thus, You don´t need to run the modified script file from beginning.
+
+/* main.cpp */
+#include <iostream>
+#include "functions.h“
+using namespace std;
+int main()
+{
+ print_hello();
+ cout << endl;
+ cout << "The factorial of 5 is " <<
+factorial(5) << endl;
+ return 0;
+}
+
+/* hello.cpp */
+#include <iostream>
+#include "functions.h"
+using namespace std;
+void print_hello()
+{
+ cout << "Hello World!";
+}
+
+/* factorial.cpp */
+#include "functions.h"
+int factorial(int n)
+{
+ int i, fac = 1;
+ if(n!=1){
+ for(i=1; i<= n; i++)
+ fac *= i;
+ return fac;
+ }
+ else return 1;
+}
+
+/* functions.h */
+#if !defined(_FUNC_H_)
+#define _FUNC_H_
+void print_hello();
+int factorial(int n);
+#endif /* if !define(_FUNC_H_) */
+
+
+Command Line Approach to Compile
+• g++ -c hello.cpp main.cpp factorial.cpp
+• ls *.o
+ factorial.o hello.o main.o
+• g++ -o prog factorial.o hello.o main.o
+• ./ prog
+ Hello World!
+ The factorial of 5 is 120
+• Suppose we later modified hello.cpp, we need to:
+• g++ -c hello.cpp
+• g++ -o prog factorial.o hello.o main.o
+
+
+Example Makefile
+# This is a comment line
+CC=g++
+# CFLAGS will be the options passed to the compiler.
+CFLAGS= -c -Wall
+all: prog
+prog: main.o factorial.o hello.o
+$(CC) main.o factorial.o hello.o -o prog
+main.o: main.cpp
+$(CC) $(CFLAGS) main.cpp
+factorial.o: factorial.cpp
+$(CC) $(CFLAGS) factorial.cpp
+hello.o: hello.cpp
+$(CC) $(CFLAGS) hello.cpp
+clean:
+rm -rf *.o 
+
