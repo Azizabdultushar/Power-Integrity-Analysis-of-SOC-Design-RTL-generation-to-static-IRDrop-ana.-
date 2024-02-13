@@ -537,6 +537,7 @@ Steps
 
 --------------------------------------------------------------------------------------------
 *** Early Rail Analysis (ERA) of rocket core 
++ [static rail script](#script-static)
 + 1. Early Rail Analysis_VDD_rail
 [[./img/rocket_era1_vdd.jpg]]
 + Report: IR drop for VDD [[./rep/rocket_VDD.main.html][Report]]
@@ -624,6 +625,77 @@ Total Power:                 7.17956851
           Total instances in design with no power:     0
           Total instances in design with no activity:     0
           Total Fillers and Decap:  1598
+#+END_SRC
+
+# static rail script
+#+BEGIN_SRC
+read_lib -lef {../Library/lef/gsclib045_tech.lef 
+../Library/lef/gsclib045_macro.lef 
+../Library/lef/gsclib045_hvt_macro.lef 
+../Library/lef/gsclib045_lvt_macro.lef}
+
+read_verilog ../DesignDataIn/netlist/rocket_netlist.v
+
+set_top_module Rocket -ignore_undefined_cell
+
+read_def ./routing.def.gz
+
+read_power_domain -cpf ../DesignDataIn/cpf/sparc_exu_alu.cpf
+
+read_spef -rc_corner RC_wc_125 -decoupled ./Rocket.spef
+
+
+set_power_analysis_mode -method static -analysis_view AV_fast_mode_wc_rc125_setup -corner max -create_binary_db true -write_static_currents true -honor_negative_energy true -ignore_control_signals true
+
+set_switching_activity -reset
+set_switching_activity -input_port rst -activity 0.25 -duty 0.30
+propagate_activity
+
+set_power_output_dir -reset
+set_power_output_dir ./static_power
+set_default_switching_activity -reset
+set_default_switching_activity -input_activity 0.3 -period 4.0 -seq_activity 0.2 -clock_gates_output 0.5
+read_activity_file -reset
+
+set_power -reset
+set_powerup_analysis -reset
+set_dynamic_power_simulation -reset
+report_power -rail_analysis_format VS -outfile ./static_power/Rocket.rpt
+
+set_power_analysis_mode -reset
+set_power_analysis_mode -method static -analysis_view AV_fast_mode_wc_rc125_hold -corner max -create_binary_db true -write_static_currents true -honor_negative_energy true -ignore_control_signals true
+
+set_power_analysis_mode -reset
+set_power_analysis_mode -method static -analysis_view AV_fast_mode_wc_rc125_hold -corner max -create_binary_db true -write_static_currents true -honor_negative_energy true -ignore_control_signals true
+
+set_power_output_dir -reset
+set_power_output_dir ./static_power
+set_default_switching_activity -reset
+set_default_switching_activity -input_activity 0.3 -period 4.0 -seq_activity 0.2 -clock_gates_output 0.5
+read_activity_file -reset
+set_power -reset
+set_powerup_analysis -reset
+set_dynamic_power_simulation -reset
+
+report_power -rail_analysis_format VS -outfile ./static_power/Rocket.rpt
+report_analysis_views -type all
+
+set_power_analysis_mode -reset
+set_power_analysis_mode -method static -corner max -create_binary_db true -write_static_currents true -honor_negative_energy true -ignore_control_signals true
+
+set_power_output_dir -reset
+set_power_output_dir ./static_power
+set_default_switching_activity -reset
+set_default_switching_activity -input_activity 0.3 -period 4.0 -seq_activity 0.2 -clock_gates_output 0.5
+read_activity_file -reset
+
+set_power -reset
+set_powerup_analysis -reset
+set_dynamic_power_simulation -reset
+report_power -rail_analysis_format VS -outfile ./static_power/Rocket.rpt
+
+fit
+
 #+END_SRC
 
 
