@@ -537,7 +537,6 @@ Steps
 
 --------------------------------------------------------------------------------------------
 *** Early Rail Analysis (ERA) of rocket core 
-+ [static rail script](#script-static)
 + 1. Early Rail Analysis_VDD_rail
 [[./img/rocket_era1_vdd.jpg]]
 + Report: IR drop for VDD [[./rep/rocket_VDD.main.html][Report]]
@@ -627,7 +626,7 @@ Total Power:                 7.17956851
           Total Fillers and Decap:  1598
 #+END_SRC
 
-# static rail script
++ static rail script
 #+BEGIN_SRC
 read_lib -lef {../Library/lef/gsclib045_tech.lef 
 ../Library/lef/gsclib045_macro.lef 
