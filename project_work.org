@@ -554,6 +554,7 @@ Steps
 [[./img/instancetotalpowerresult.jpg]]
 
 + Report
+#+BEGIN_SRC
 	Power Domain used: 
               Rail:        VDD      Voltage:       1.08 
 
@@ -624,7 +625,7 @@ Total Power:                 7.17956851
           Total instances in design with no activity:     0
           Total Fillers and Decap:  1598
 -----------------------------------------------------------------------------------------
-
+#+BEGIN_END
 
 
 * Personal Notes
