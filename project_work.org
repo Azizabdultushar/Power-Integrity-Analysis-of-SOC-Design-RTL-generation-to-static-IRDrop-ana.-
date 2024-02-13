@@ -549,8 +549,8 @@ Steps
 + When we will get the final layout after routing, then we can extract the final parasitics/spef
 
 
-[[./img/staticpower.JPG]]
-[[./img/instancetotalpower.JPG]]
+[[./img/staticpower.jpg]]
+[[./img/instancetotalpower.jpg]]
 [[./img/instancetotalpowerresult.jpg]]
 
 * Personal Notes
