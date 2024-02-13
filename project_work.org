@@ -624,8 +624,7 @@ Total Power:                 7.17956851
           Total instances in design with no power:     0
           Total instances in design with no activity:     0
           Total Fillers and Decap:  1598
------------------------------------------------------------------------------------------
-#+BEGIN_END
+#+END_SRC
 
 
 * Personal Notes
