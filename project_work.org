@@ -537,13 +537,16 @@ Steps
 
 --------------------------------------------------------------------------------------------
 *** Early Rail Analysis (ERA) of rocket core 
-+ **1. Early Rail Analysis_VDD_rail**
++ 1. Early Rail Analysis_VDD_rail
 [[./img/rocket_era1_vdd.jpg]]
 + Report: IR drop for VDD [[./rep/rocket_VDD.main.html][Report]]
 [[./img/rocket_era1_vddd.jpg]]
 
-
-
+*** Static IR drop analysis of rocket core
++ Parasitics: Parasitics are the devices which are not intended but intrinsic to any physical representation circuit
++ It is always unexpected.Interconnects trces have RESISTANCE, INDUCTANCE AND CAPACITANCE TO THEIR SURROUNDING
++ Digital place and route tools might use ** estimates ** already in the placement phase 
++ When we will get the final layout after routing, then we can extract the final parasitics/spef
 
 
 * Personal Notes
