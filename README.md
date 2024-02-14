@@ -3,10 +3,9 @@
 
 ### Important tasks, 2023s – 2024s
 
-- [ ] Good understanding of CPF file
-- [x] Basics of verilog code
-- [x] Fault analysis of tcl code
-- [ ] Did you synthesize the top module with macro lib file?
+- [ ] Nein
+- [x] Basics
+
 ### Important QUESTIONS TO SUPERVISOR ?
 - [ ] Cabtables is generated from foundry same as LEF file but QRC tech file is more accuarate which is generated from extractor tools?
 - [ ] I want to do this course https://community.cadence.com/cadence_blogs_8/b/di/posts/rtl-to-gdsii-flow-i-am-not-a-tool-but-can-help-you-implement-your-entire-design
