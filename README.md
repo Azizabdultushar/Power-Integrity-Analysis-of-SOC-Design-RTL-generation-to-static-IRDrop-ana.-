@@ -3,8 +3,13 @@
 
 ### Important tasks, 2023s – 2024s
 
-- [ ] Nein
-- [x] Basics
+- [X] writing and explaining the design flow
+- [] take one early rail analysis
+- [] take one static rail analysis data
+- [] modifying some metrics and run static rail analysis 5 times
+- [] Take output data
+- [] Compare the output data according to input modification.
+  
 
 ### Important QUESTIONS TO SUPERVISOR ?
 - [ ] Cabtables is generated from foundry same as LEF file but QRC tech file is more accuarate which is generated from extractor tools?
