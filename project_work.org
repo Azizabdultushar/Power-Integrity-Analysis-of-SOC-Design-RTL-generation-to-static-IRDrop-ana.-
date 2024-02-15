@@ -548,7 +548,7 @@ Steps
 + Digital place and route tools might use ** estimates ** already in the placement phase 
 + When we will get the final layout after routing, then we can extract the final parasitics/spef
 
-
++ Static power calculation: Setup and Run
 [[./img/staticpower.jpg]]
 [[./img/instancetotalpower.jpg]]
 [[./img/instancetotalpowerresult.jpg]]
