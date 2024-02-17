@@ -205,7 +205,7 @@ Usage: reportTranViolation
 * inphi corporation acquired by Marcell Technology
    
   
-[./img/pyroadmap.jpg]
+(./img/pyroadmap.jpg)
 
 
 
