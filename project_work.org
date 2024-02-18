@@ -553,7 +553,7 @@ Steps
 [[./img/instancetotalpower.jpg]]
 [[./img/instancetotalpowerresult.jpg]]
 
-+ Report
++ Report static power 
 #+BEGIN_SRC
 	Power Domain used: 
               Rail:        VDD      Voltage:       1.08 
@@ -626,7 +626,7 @@ Total Power:                 7.17956851
           Total Fillers and Decap:  1598
 #+END_SRC
 
-+ static rail script
++ static power analysis script
 #+BEGIN_SRC
 read_lib -lef {../Library/lef/gsclib045_tech.lef 
 ../Library/lef/gsclib045_macro.lef 
