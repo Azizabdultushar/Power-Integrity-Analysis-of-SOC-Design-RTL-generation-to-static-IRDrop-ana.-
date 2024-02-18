@@ -8,4 +8,4 @@
   7. totall number of instances:>> sizeof_collection [get_cells -hier -filter "is_hierarchical == false"]
   8. total number of IO pin:>> sizeof_collection [get_ports *]
   9. total number of memory: get_cells -hier -filter "is_memory_cell ==true"
-  10. 
+  10. suppress or omitting warning messege: > suppressMessage IMPOAX 124 332
