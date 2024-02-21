@@ -542,7 +542,7 @@ Steps
 + Report: IR drop for VDD [[./rep/rocket_VDD.main.html][Report]]
 [[./img/rocket_era1_vddd.jpg]]
 
-*** Static IR drop analysis of rocket core
+*** Static power analysis of rocket core
 + Parasitics: Parasitics are the devices which are not intended but intrinsic to any physical representation circuit
 + It is always unexpected.Interconnects trces have RESISTANCE, INDUCTANCE AND CAPACITANCE TO THEIR SURROUNDING
 + Digital place and route tools might use ** estimates ** already in the placement phase 
