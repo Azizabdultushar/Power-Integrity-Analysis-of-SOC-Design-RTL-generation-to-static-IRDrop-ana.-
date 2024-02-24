@@ -9,3 +9,6 @@
   8. total number of IO pin:>> sizeof_collection [get_ports *]
   9. total number of memory: get_cells -hier -filter "is_memory_cell ==true"
   10. suppress or omitting warning messege: > suppressMessage IMPOAX 124 332
+11. view all analysis view setup during floorplan: all_analysis_view
+12.  view ndr rules or to see existing rules: dbGet head.rules.name
+13.  
