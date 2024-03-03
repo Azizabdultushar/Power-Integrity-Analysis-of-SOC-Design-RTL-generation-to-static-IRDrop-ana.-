@@ -197,6 +197,22 @@ Usage: reportTranViolation
     <fileName>
 
 
+
+* what is shell
+* How many types of shell we have?
+* what are the examples of command line interface shell
+* what are the examples of graphical line interface shell
+* what is system environment?
+* what is variable environment?
+* what is PATH?
+* what is miniforge?
+* what are the python distributions?
+* 
+
+
+
+
+
 ## Contributors/Collaborators
 <img align="right" height="120" src="../assets/images/logos/okstate.png">
 
