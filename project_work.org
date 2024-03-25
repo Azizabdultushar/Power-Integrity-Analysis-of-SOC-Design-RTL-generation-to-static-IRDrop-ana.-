@@ -785,6 +785,95 @@ maximum cell instance number and so on, Because innovus has a lot of different v
 + power net power file  .ppfile
 + sdc >> synopsys design constraints file
 
+** lets get familiar about some popular SoC interface protocols those are more frequently used in 
+modern chips for different applications. The protocol according to different application domains.
+
+Here is the comprehensive list -
+
+1. Storage
++ SATA 3.3
++ NVMe 1.4
++ UFS 3.0
++ UHS 3
++ SD Express
++ SDIO
++ eMMC
+
+2. Universal Serial Bus (USB)
++ USB 4.0
++ USB 3.2/3.1/3.0
++ USB 2.0
++ USB OTG
++ USB PD
++ USB Type-C 1.3
++ xHCI
+
+3. PCl Express (PCle)
++ PCIe Gen 5
++ PCIe Gen 4
++ PCIe Gen 3
++ PCIe Gen 2
++ PIPE 5/4.4.1
++ SRIOV
+4. Memory
++ DDR5/4/3/2
++ LPDDR5/4/3/2
++ HBM3/2
++ GDDR6
++ ONFI
+
+5. Networking (Ethernet)
++ 800G
++ 400G/200G
++ 100G/40G
++ 50G/25G
++ 10G
++ 1G
++ XAUI
++ XGMII
++ XGXS/USXGMII
++ CDXS/CCXS
+
+6. MIPI
++ CSI-2 v2.1
++ DSI-2 v1.1
++ DPHY v2.1
++ CPHY v1.2
++ MPHY v4.1
++ Unipro v1.8 
+
+7. AMBA
++ AXI5/4/3
++ AXI4 Lite
++ AHB5/3/2
++ APB4/3/2
++ ATB v1.1
++ ACE4
+
+8. display
++ HDMI 2.0
++ HDMI 1.4
++ DisplayPort 2.0
++ DisplayPort 1.4
++ HDCP 2.3
++ HDCP 2.2
++ HDCP 1.4
++ eDP
+
+9. Misc (serial Protocols)
++ SPI/QSPI
++ UART
++ I2C
++ I2S
++ JTAG
++ PMBUS v1.3.1
++ SMBUS v3.1
+
+These are some of the most prominent interface protocols.
+
+
+
+
 
 * Question
 + Which pdk I should use in b19?
