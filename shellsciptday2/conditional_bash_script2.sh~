@@ -1,0 +1,11 @@
+#! /bin/bash
+
+monthly_expense=120
+
+if [ $monthly_expense -eq 120 ]
+then
+    
+   echo "RED Alart"
+fi
+
+

@@ -1,0 +1,4 @@
+#! /bin/bash
+
+echo "new output"
+echo "new output as file">output.txt
