@@ -13,15 +13,18 @@
 
 ### Important QUESTIONS TO SUPERVISOR ?
 - [ ] Cabtables is generated from foundry same as LEF file but QRC tech file is more accuarate which is generated from extractor tools?
-- [ ] I want to do this course https://community.cadence.com/cadence_blogs_8/b/di/posts/rtl-to-gdsii-flow-i-am-not-a-tool-but-can-help-you-implement-your-entire-design
+- [ ] 
 - [ ] 
 
 These pages provide the documentation of IR drop analysis. You can use the links below to
 navigate through the documentation.
 
 
-
 ## Table of Contents
+1. [Chipyard Dependencies Installation](#Chipyard-Dependencies-Installation)
+1. [Generator installation](#Generator-installation)
+1. [Advanced PnR process](#Advanced-PnR-process)
+1. [Advanced PnR process](#Advanced-PnR-process)
 1. [Advanced PnR process](#Advanced-PnR-process)
 1. [Conformal Verification](#Conformal-Verification)
 1. [VERILOG](./verilog.md)
@@ -45,6 +48,40 @@ navigate through the documentation.
 1. [Results](./results.md#go-back)
 1. [FAQ](./FAQ.md#go-back)
 1. [Contributors/Collaborators](#contributorscollaborators)
+
+
+## Chipyard Dependencies Installation
+* this section is still developing
+
+
+## Generator installation
+```
+git clone https://github.com/ucb-bar/chipyard.git
+cd chipyard
+git checkout 1.8.1 #Going back to previous 1.8.1 version
+./build-setup.sh esp-tools  # Building the tool set
+
+source env.sh
+
+cd generators/gemmini
+git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
+git fetch && git checkout v0.7.0
+git submodule update --init --recursive
+
+SPIKE_HASH=$(cat SPIKE.hash)
+
+cd -
+cd toolchains/esp-tools/riscv-isa-sim/build
+git fetch && git checkout $SPIKE_HASH
+make && make install
+
+# The final step is only necessary if you want to run MIDAS simulations with
+# realistic DRAM models
+cd -
+cd sims/firesim
+source sourceme-f1-manager.sh --skip-ssh-setup # Ignore error messages from this command
+./build-setup.sh --library --skip-validate
+```
 
 
 
