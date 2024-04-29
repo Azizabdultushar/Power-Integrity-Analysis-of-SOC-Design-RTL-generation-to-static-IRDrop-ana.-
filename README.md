@@ -59,7 +59,7 @@ navigate through the documentation.
 git clone https://github.com/ucb-bar/chipyard.git
 cd chipyard
 git checkout 1.8.1 #Going back to previous 1.8.1 version
-./build-setup.sh esp-tools  # Building the tool set
+./build-setup.sh esp-tools  # Building the tool set by naming as esp-tools; esp-tools is an argument here you can give your name as well.
 
 source env.sh
 
