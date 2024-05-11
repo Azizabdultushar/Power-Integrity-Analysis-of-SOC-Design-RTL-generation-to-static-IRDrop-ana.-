@@ -5,20 +5,11 @@
 
 - [X] writing and explaining the design flow
 - [] take one early rail analysis
-- [] take one static rail analysis data
-- [] modifying some metrics and run static rail analysis 5 times
-- [] Take output data
-- [] Compare the output data according to input modification.
   
 
 ### Important QUESTIONS TO SUPERVISOR ?
 - [ ] Cabtables is generated from foundry same as LEF file but QRC tech file is more accuarate which is generated from extractor tools?
 - [ ] 
-- [ ] 
-
-These pages provide the documentation of IR drop analysis. You can use the links below to
-navigate through the documentation.
-
 
 ## Table of Contents
 1. [Chipyard Dependencies Installation](#Chipyard-Dependencies-Installation)
@@ -91,6 +82,21 @@ cd sims/firesim
 source sourceme-f1-manager.sh --skip-ssh-setup # Ignore error messages from this command
 ./build-setup.sh --library --skip-validate
 ```
+## Export top module SoC
+## Behavioral RTL analysis
+## Partioning RTL/Top module
+## Synthesis of partitioned/block/IP
+## Backend design of synthesized IP/block
+## Integration of IP/block into top/SoC
+## Data/resources extraction for power integrity analysis
+## Early rail analysis of SoC
+## Static IRDrop analysis of SoC
+## Dynamic IRDrop analysis of SoC
+##
+##
+##
+##
+##
 
 
 
