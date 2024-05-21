@@ -38,8 +38,7 @@ Select the languages that we are going to use here.
 
 #+END_COMMENT
 ------------------------------------------------------------
-* Goal 
-This document contains information on power planning and IR drop analysis. Specifically, it cointains:
+* ABSTRACT
 + Theory and math related to power and rail analysis.
 + Practical know-how on doing rail and power analysis using EDA tools.
 + New technologies for IR drop reduction.
