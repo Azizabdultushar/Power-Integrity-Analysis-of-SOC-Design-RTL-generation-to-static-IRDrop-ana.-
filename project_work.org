@@ -75,6 +75,20 @@ constituting the power delivery networks (PDNs). When current flows
 through the PDN, part of the voltage is dropped across the network,
 as per Ohm’s law. This phenomenon is called IR drop.
 
+When current flow in the loop, magnetic-field line rings are created from each of the two legs.
+If the current in the loop changes,the number of field line rings around each half of the wire would
+change.Likewise, there would be a voltage created across each leg that would depend on how fast the total numberof field
+line rings aorund the eachleg was changing.
+
+
+Ground Bounce: Ground Bounce is the voltage between two points in the return path 
+due to a changing current in a loop. Primary casues of ground bounce are switching noise and
+EMI .It is Primarily related to total inductance of the return path and shared return current paths.
+TO decrease ground bounce voltage noise, there are two significant features to change: 1) Decrease the partial "self-inductance
+of the return path" by using "short lengths and wide interconnects", and increase the "mutual inductance of the two legs" by 
+bringing the current and its return path closer together.
+
+
 This voltage drop in the power delivery network before
 the voltage reaches standard cell
 power pins significantly affects the chip's switching speed and performance.
@@ -94,7 +108,7 @@ the nominally zero voltage rises above zero.
 + dynamic IR drop
   + vectorless
   + vectorbased
-
+  
 ------------------------------------------------------------
 
 * Literature Review
