@@ -51,7 +51,7 @@
 
 
 ## Generator installation
-![bash terminal](./other_programming_skills/SoC_generated_cmd.txt.jpeg)
+![bash terminal](./other_programming_skills/SoC_generated_cmd.txt)
 ```
 git clone https://github.com/ucb-bar/chipyard.git
 cd chipyard
@@ -79,6 +79,7 @@ cd sims/firesim
 source sourceme-f1-manager.sh --skip-ssh-setup # Ignore error messages from this command
 ./build-setup.sh --library --skip-validate
 ```
+
 ## Export top module SoC
 ## Behavioral RTL analysis
 ## Partioning RTL/Top module
@@ -89,12 +90,6 @@ source sourceme-f1-manager.sh --skip-ssh-setup # Ignore error messages from this
 ## Early rail analysis of SoC
 ## Static IRDrop analysis of SoC
 ## Dynamic IRDrop analysis of SoC
-##
-##
-##
-##
-##
-
 
 
 ## Advanced PnR process
