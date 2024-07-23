@@ -48,7 +48,6 @@
 
 ## Chipyard Dependencies Installation
 Default Requirements Installation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In Chipyard, we use the `Conda <https://docs.conda.io/en/latest/>`__ package manager to help manage system dependencies.
 Conda allows users to create an "environment" that holds system dependencies like ``make``, ``gcc``, etc.
