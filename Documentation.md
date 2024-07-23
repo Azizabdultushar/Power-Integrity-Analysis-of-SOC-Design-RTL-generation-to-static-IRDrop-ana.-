@@ -47,8 +47,35 @@
 -->
 
 ## Chipyard Dependencies Installation
-* this section is still developing
+Default Requirements Installation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+In Chipyard, we use the `Conda <https://docs.conda.io/en/latest/>`__ package manager to help manage system dependencies.
+Conda allows users to create an "environment" that holds system dependencies like ``make``, ``gcc``, etc.
+
+.. Note:: Chipyard can also run on systems without a Conda installation. However, users on these systems must manually install toolchains and dependencies.
+
+First, Chipyard requires the latest Conda to be installed on the system.
+Please refer to the `Conda installation instructions <https://github.com/conda-forge/miniforge/#download>`__ on how to install the latest Conda with the **Miniforge** installer.
+
+After Conda is installed and is on your ``PATH``, we need to install a version of ``git`` to initially checkout the repository.
+For this you can use the system package manager like ``yum`` or ``apt`` to install ``git``.
+This ``git`` is only used to first checkout the repository, we will later install a newer version of ``git`` with Conda.
+
+Next, we install `libmamba <https://www.anaconda.com/blog/a-faster-conda-for-a-growing-community>`__ for much faster dependency solving when initially setting up the repository.
+
+.. code-block:: shell
+
+    conda install -n base conda-libmamba-solver
+    conda config --set solver libmamba
+
+Finally we need to install ``conda-lock`` into the ``base`` conda environment.
+This is done by the following:
+
+.. code-block:: shell
+
+    conda install -n base conda-lock==1.4.0
+    conda activate base
 
 ## Generator installation
 ![bash terminal](./other_programming_skills/SoC_generated_cmd.txt)
