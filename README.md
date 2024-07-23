@@ -1,15 +1,11 @@
-# Documentation
-![Logo](./img/logo.jpeg) 
-
-### Important tasks, 2023s – 2024s
-
-- [X] writing and explaining the design flow
-- [] take one early rail analysis
-  
+# Power-Integrity-Analysis-of-SOC
+<!-- ![Logo](./img/logo.jpeg)
 
 ### Important QUESTIONS TO SUPERVISOR ?
 - [ ] Cabtables is generated from foundry same as LEF file but QRC tech file is more accuarate which is generated from extractor tools?
 - [ ] 
+-->
+
 
 ## Table of Contents
 1. [Chipyard Dependencies Installation](#Chipyard-Dependencies-Installation)
@@ -19,14 +15,14 @@
 1. [Partioning RTL/Top module](#Partioning-RTL/Top-module)
 1. [Synthesis of partitioned/block/IP](#Synthesis-of-partitioned/block/IP)
 1. [Backend design of synthesized IP/block](#Backend-design-of-synthesized-IP/block)
-2. [Integration of IP/block into top/SoC](#Integration-IP/block-into-top/SoC)
-1. [Data/resources extraction for power integrity analysis](#Data/resources-extraction-for-power-integrity-analysis)
 1. [Early rail analysis of SoC](#Early-rail-analysis-of-SoC)
+<!-- 2. [Integration of IP/block into top/SoC](#Integration-IP/block-into-top/SoC) -->
+1. [File/Data/resources extraction for power integrity analysis](#File/Data/resources-extraction-for-power-integrity-analysis)
 1. [Static IRDrop analysis of SoC](#Static-IRDrop-analysis-of-SoC)
-2. [Dynamic IRDrop analysis of SoC](#Dynamic-IRDrop-analysis-of-SoC)
+<!-- 1. [Dynamic IRDrop analysis of SoC](#Dynamic-IRDrop-analysis-of-SoC) -->
 
 
-
+<!--
 1. [Verilog](./verilog.md)
 1. [Basic liberty file .lib](./timing_lib_file.md#go-back)
 1. [conformat rtl and cpf script checking](./conformal_sanity_check.md#go-back)
@@ -48,13 +44,14 @@
 1. [Results](./results.md#go-back)
 1. [FAQ](./FAQ.md#go-back)
 1. [Contributors/Collaborators](#contributorscollaborators)
-
+-->
 
 ## Chipyard Dependencies Installation
 * this section is still developing
 
 
 ## Generator installation
+![bash terminal](./other_programming_skills/SoC_generated_cmd.txt.jpeg)
 ```
 git clone https://github.com/ucb-bar/chipyard.git
 cd chipyard
