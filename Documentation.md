@@ -106,7 +106,18 @@ source sourceme-f1-manager.sh --skip-ssh-setup # Ignore error messages from this
 ./build-setup.sh --library --skip-validate
 ```
 
+Each of these simulators has its strengths and is suited for specific stages and aspects of the VLSI design and verification process:
+
+#Spike: Ideal for early-stage functional verification and software development on RISC-V processors due to its high speed and simplicity.
+#Verilator: Best for high-performance cycle-accurate simulation of digital designs, particularly where an open-source solution is preferred.
+#VCS: A comprehensive, high-performance commercial tool for detailed cycle-accurate simulation, verification, and debugging of large and complex VLSI designs.
+#Irun: A versatile tool supporting both digital and mixed-signal simulations, offering extensive debugging and verification features, integrated within Cadence’s suite of EDA tools.
+
+
 ## Export top module SoC
+
+
+
 ## Behavioral RTL analysis
 ## Partioning RTL/Top module
 ## Synthesis of partitioned/block/IP
