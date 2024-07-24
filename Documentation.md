@@ -121,6 +121,41 @@ Each of these simulators has its strengths and is suited for specific stages and
 ## Behavioral RTL analysis
 ## Partioning RTL/Top module
 ## Synthesis of partitioned/block/IP
+The inputs to ASIC synthesis are:
+HDL: The Verilog or VHDL design files
+Constraints: The timing, power, and area constraints
+Timing Libraries: The standard cell libraries.
+
+Synthesis Commands:
+´´´
+set target_library <STDCELL_LIBRARY>
+set link_library1 "* $target_library io.db rams.db"
+read_verilog <RTL FILES LIST>
+current_design <TOP_MODULE_NAME>
+link
+source <TIMING_CONSTRAINTS>
+compile #Synthesize the design
+´´´
+The outputs are:
+Design netlist
+Various reports about the design such as timing, power or area reports
+Synthesis Commands:
+´´´
+write -f verilog -o ./netlist.v
+report_timing
+report_power
+report_area
+´´´
+Both ASIC and FPGA synthesis starts with technology independent netlist/generic gate. After that the generic netlist is mapped into  target technology and optimized to meet constraint(timing, area and power).Now the question is, what is target technology? Target technology is called standard cell library. It is a collection or pre-design, pre-optimized and pre-characterized logic gate, which we can used in digital function in silicon industry.
+
+Example of target technology: 
+1. FreePDK45nm
+2. PDK045nm Cadence
+3. PDK040nm TSMC
+4. PDK065nm TSMC
+
+In general, the file hierarchi should be like this:
+
 ## Backend design of synthesized IP/block
 ## Integration of IP/block into top/SoC
 ## Data/resources extraction for power integrity analysis
