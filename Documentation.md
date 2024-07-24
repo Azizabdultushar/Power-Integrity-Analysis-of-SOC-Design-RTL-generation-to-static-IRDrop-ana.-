@@ -117,7 +117,6 @@ Each of these simulators has its strengths and is suited for specific stages and
 ## Export top module SoC
 
 
-
 ## Behavioral RTL analysis
 ## Partioning RTL/Top module
 ## Synthesis of partitioned/block/IP
@@ -154,7 +153,157 @@ Example of target technology:
 3. PDK040nm TSMC
 4. PDK065nm TSMC
 
-In general, the file hierarchi should be like this:
+In general, The digital synthesis needs
+logic models from standard cells; and the P&R needs the standard cell layout from standard
+cells. The GSCLIB045 database supplies the logical and physical building block of standard cell
+to the RTL synthesis tool and the P&R tools.
+
+
+*The Verilog Files (.v)*
+The 45nm standard cell specified its digital logic models in a Verilog file or “.v” file. The digital
+logic function is the first source of standard cell development; and it evolves gradually to
+schematic, layout, abstract, timing, and macro LEF.
+
+Path: <path> /gsclib045/verilog
+Files:
+´´´
+**Slow**
+slow_vdd1v0_basicCells.v
+slow_vdd1v0_basicCells_hvt.v
+slow_vdd1v0_basicCells_lvt.v
+slow_vdd1v0_dNW0v0_basicCells_backbias.v
+slow_vdd1v0_dNW0v3_basicCells_backbias.v
+slow_vdd1v0_extvdd1v0.v
+slow_vdd1v0_extvdd1v2.v
+slow_vdd1v0_multibitsDFF.v
+slow_vdd1v2_basicCells.v
+slow_vdd1v2_basicCells_hvt.v
+slow_vdd1v2_basicCells_lvt.v
+slow_vdd1v2_dNW0v0_basicCells_backbias.v
+slow_vdd1v2_dNW0v3_basicCells_backbias.v
+slow_vdd1v2_extvdd1v0.v
+slow_vdd1v2_extvdd1v2.v
+slow_vdd1v2_multibitsDFF.v
+
+**Fast**
+fast_vdd1v0_basicCells.v
+fast_vdd1v0_basicCells_hvt.v
+fast_vdd1v0_basicCells_lvt.v
+fast_vdd1v0_dNW0v0_basicCells_backbias.v
+fast_vdd1v0_dNW0v3_basicCells_backbias.v
+fast_vdd1v0_extvdd1v0.v
+fast_vdd1v0_extvdd1v2.v
+fast_vdd1v0_multibitsDFF.v
+fast_vdd1v2_basicCells.v
+fast_vdd1v2_basicCells_hvt.v
+fast_vdd1v2_basicCells_lvt.v
+fast_vdd1v2_dNW0v0_basicCells_backbias.v
+fast_vdd1v2_dNW0v3_basicCells_backbias.v
+fast_vdd1v2_extvdd1v0.v
+fast_vdd1v2_extvdd1v2.v
+fast_vdd1v2_multibitsDFF.v
+´´´
+
+**The Liberty Timing Files (.lib)**
+The liberty-timing file or “.lib” file contains the timing, delay and power parameters associated
+with a specific standard cell. The timing is obtained from multiple analog simulations under
+variety of conditions to a specific standard cell.
+Cadence Innovus will use the liberty timing file (.lib) along with the Verilog model file (.v) in
+synthesizing the circuit based on the timing and load information of the standard cells.
+
+Path: <path> /gsclib045/timing
+Files:
+´´´
+**Slow**
+slow_vdd1v0_basicCells.lib
+slow_vdd1v0_basicCells_hvt.lib
+slow_vdd1v0_basicCells_lvt.lib
+slow_vdd1v0_dNW0v0_basicCells_backbias.lib
+slow_vdd1v0_dNW0v3_basicCells_backbias.lib
+slow_vdd1v0_extvdd1v0.lib
+slow_vdd1v0_extvdd1v2.lib
+slow_vdd1v0_multibitsDFF.lib
+slow_vdd1v2_basicCells.lib
+slow_vdd1v2_basicCells_hvt.lib
+slow_vdd1v2_basicCells_lvt.lib
+slow_vdd1v2_dNW0v0_basicCells_backbias.lib
+slow_vdd1v2_dNW0v3_basicCells_backbias.lib
+slow_vdd1v2_extvdd1v0.lib
+slow_vdd1v2_extvdd1v2.lib
+slow_vdd1v2_multibitsDFF.lib
+
+**Fast**
+fast_vdd1v0_basicCells.lib
+fast_vdd1v0_basicCells_hvt.lib
+fast_vdd1v0_basicCells_lvt.lib
+fast_vdd1v0_dNW0v0_basicCells_backbias.lib
+fast_vdd1v0_dNW0v3_basicCells_backbias.lib
+fast_vdd1v0_extvdd1v0.lib
+fast_vdd1v0_extvdd1v2.lib
+fast_vdd1v0_multibitsDFF.lib
+fast_vdd1v2_basicCells.lib
+fast_vdd1v2_basicCells_hvt.lib
+fast_vdd1v2_basicCells_lvt.lib
+fast_vdd1v2_dNW0v0_basicCells_backbias.lib
+fast_vdd1v2_dNW0v3_basicCells_backbias.lib
+fast_vdd1v2_extvdd1v0.lib
+fast_vdd1v2_extvdd1v2.lib
+fast_vdd1v2_multibitsDFF.lib
+´´´
+
+**The LEF Files (.lef)**
+In GSCLIB045 database, the library-exchange format files (.lef) are generated from the Virtuoso
+‘abstract’ view. The macro LEF file is an ASCII data format that describes a specific standard cell. The LEF files of gsclib045 standard cells are available as following.
+
+Path: <path>/gsclib045/lef
+Files: 
+´´´
+gsclib045_tech.lef
+gsclib045_macro.lef
+gsclib045_hvt_macro.lef
+gsclib045_lvt_macro.lef
+gsclib045_backbias_macro.lef
+gsclib045_multibitsDFF.lef
+The GDS Files (.gds)
+´´´
+**The graphic database system files (.gds)** 
+The gsclib045 standard cells are translated from the Virtuoso ‘layout’ view and available as following.
+
+Path: <path>/gsclib045/gds
+Files: 
+´´´
+gsclib045.gds
+gsclib045_backbias.gds
+gsclib045_hvt.gds
+gsclib045_lvt.gds
+´´´
+
+
+*Physical Verification Data*
+
+**The CDL Netlist Files (.cdl)**
+
+The circuit design language files (CDL) of gsclib045 standard cells are generated from the
+Virtuoso ‘schematic’ view and are available as following.
+
+Path: <path>/gsclib045/cdl
+Files: 
+
+´´´
+gsclib045.cdl
+gsclib045_backbias.cdl
+gsclib045_hvt.cdl
+gsclib045_lvt.cdl
+´´´
+
+The QRC Extraction Technology File
+The GSCLIB045 database provides the QRC extraction technology file for Encounter tool as
+following.
+Path: <path>/gsclib045/qrc/qx
+Files: 
+´´´
+gpdk045.tch
+´´´
 
 ## Backend design of synthesized IP/block
 ## Integration of IP/block into top/SoC
